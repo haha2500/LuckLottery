@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF415834E96000CA104 /* UIKit.framework */; };
+		EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF615834E96000CA104 /* Foundation.framework */; };
+		EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF815834E96000CA104 /* CoreGraphics.framework */; };
+		EECF8CFF15834E96000CA104 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EECF8CFD15834E96000CA104 /* InfoPlist.strings */; };
+		EECF8D0115834E96000CA104 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0015834E96000CA104 /* main.m */; };
+		EECF8D0515834E96000CA104 /* QCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0415834E96000CA104 /* QCAppDelegate.m */; };
+		EECF8D0815834E96000CA104 /* QCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0715834E96000CA104 /* QCViewController.m */; };
+		EECF8D0B15834E96000CA104 /* QCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF8D0915834E96000CA104 /* QCViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EECF8CF015834E96000CA104 /* LuckLottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckLottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EECF8CF415834E96000CA104 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EECF8CF615834E96000CA104 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EECF8CF815834E96000CA104 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EECF8CFC15834E96000CA104 /* LuckLottery-Info.plist */ = {isa = PBXFileReference; path = "LuckLottery-Info.plist"; sourceTree = "<group>"; };
+		EECF8CFE15834E96000CA104 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EECF8D0015834E96000CA104 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EECF8D0215834E96000CA104 /* LuckLottery-Prefix.pch */ = {isa = PBXFileReference; path = "LuckLottery-Prefix.pch"; sourceTree = "<group>"; };
+		EECF8D0315834E96000CA104 /* QCAppDelegate.h */ = {isa = PBXFileReference; path = QCAppDelegate.h; sourceTree = "<group>"; };
+		EECF8D0415834E96000CA104 /* QCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCAppDelegate.m; sourceTree = "<group>"; };
+		EECF8D0615834E96000CA104 /* QCViewController.h */ = {isa = PBXFileReference; path = QCViewController.h; sourceTree = "<group>"; };
+		EECF8D0715834E96000CA104 /* QCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCViewController.m; sourceTree = "<group>"; };
+		EECF8D0A15834E96000CA104 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QCViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EECF8CED15834E96000CA104 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */,
+				EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */,
+				EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EECF8CE515834E96000CA104 = {
+			isa = PBXGroup;
+			children = (
+				EECF8CFA15834E96000CA104 /* LuckLottery */,
+				EECF8CF315834E96000CA104 /* Frameworks */,
+				EECF8CF115834E96000CA104 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EECF8CF115834E96000CA104 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EECF8CF015834E96000CA104 /* LuckLottery.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EECF8CF315834E96000CA104 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EECF8CF415834E96000CA104 /* UIKit.framework */,
+				EECF8CF615834E96000CA104 /* Foundation.framework */,
+				EECF8CF815834E96000CA104 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EECF8CFA15834E96000CA104 /* LuckLottery */ = {
+			isa = PBXGroup;
+			children = (
+				EECF8D0315834E96000CA104 /* QCAppDelegate.h */,
+				EECF8D0415834E96000CA104 /* QCAppDelegate.m */,
+				EECF8D0615834E96000CA104 /* QCViewController.h */,
+				EECF8D0715834E96000CA104 /* QCViewController.m */,
+				EECF8D0915834E96000CA104 /* QCViewController.xib */,
+				EECF8CFB15834E96000CA104 /* Supporting Files */,
+			);
+			path = LuckLottery;
+			sourceTree = "<group>";
+		};
+		EECF8CFB15834E96000CA104 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EECF8CFC15834E96000CA104 /* LuckLottery-Info.plist */,
+				EECF8CFD15834E96000CA104 /* InfoPlist.strings */,
+				EECF8D0015834E96000CA104 /* main.m */,
+				EECF8D0215834E96000CA104 /* LuckLottery-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EECF8CEF15834E96000CA104 /* LuckLottery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EECF8D0E15834E96000CA104 /* Build configuration list for PBXNativeTarget "LuckLottery" */;
+			buildPhases = (
+				EECF8CEC15834E96000CA104 /* Sources */,
+				EECF8CED15834E96000CA104 /* Frameworks */,
+				EECF8CEE15834E96000CA104 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LuckLottery;
+			productName = LuckLottery;
+			productReference = EECF8CF015834E96000CA104 /* LuckLottery.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EECF8CE715834E96000CA104 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = QC;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = EECF8CEA15834E96000CA104 /* Build configuration list for PBXProject "LuckLottery" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EECF8CE515834E96000CA104;
+			productRefGroup = EECF8CF115834E96000CA104 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EECF8CEF15834E96000CA104 /* LuckLottery */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EECF8CEE15834E96000CA104 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EECF8CFF15834E96000CA104 /* InfoPlist.strings in Resources */,
+				EECF8D0B15834E96000CA104 /* QCViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EECF8CEC15834E96000CA104 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EECF8D0115834E96000CA104 /* main.m in Sources */,
+				EECF8D0515834E96000CA104 /* QCAppDelegate.m in Sources */,
+				EECF8D0815834E96000CA104 /* QCViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EECF8CFD15834E96000CA104 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EECF8CFE15834E96000CA104 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EECF8D0915834E96000CA104 /* QCViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EECF8D0A15834E96000CA104 /* en */,
+			);
+			name = QCViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EECF8D0C15834E96000CA104 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EECF8D0D15834E96000CA104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EECF8D0F15834E96000CA104 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LuckLottery/LuckLottery-Prefix.pch";
+				INFOPLIST_FILE = "LuckLottery/LuckLottery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EECF8D1015834E96000CA104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LuckLottery/LuckLottery-Prefix.pch";
+				INFOPLIST_FILE = "LuckLottery/LuckLottery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EECF8CEA15834E96000CA104 /* Build configuration list for PBXProject "LuckLottery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EECF8D0C15834E96000CA104 /* Debug */,
+				EECF8D0D15834E96000CA104 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EECF8D0E15834E96000CA104 /* Build configuration list for PBXNativeTarget "LuckLottery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EECF8D0F15834E96000CA104 /* Debug */,
+				EECF8D1015834E96000CA104 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EECF8CE715834E96000CA104 /* Project object */;
+}
