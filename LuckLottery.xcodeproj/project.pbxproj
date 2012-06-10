@@ -7,30 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0C166E158386F800B879A6 /* QCLuckItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */; };
+		EE0C16711583872700B879A6 /* QCLuckItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */; };
 		EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF415834E96000CA104 /* UIKit.framework */; };
 		EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF615834E96000CA104 /* Foundation.framework */; };
 		EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF815834E96000CA104 /* CoreGraphics.framework */; };
 		EECF8CFF15834E96000CA104 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EECF8CFD15834E96000CA104 /* InfoPlist.strings */; };
 		EECF8D0115834E96000CA104 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0015834E96000CA104 /* main.m */; };
 		EECF8D0515834E96000CA104 /* QCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0415834E96000CA104 /* QCAppDelegate.m */; };
-		EECF8D0815834E96000CA104 /* QCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0715834E96000CA104 /* QCViewController.m */; };
-		EECF8D0B15834E96000CA104 /* QCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF8D0915834E96000CA104 /* QCViewController.xib */; };
+		EECF8D0815834E96000CA104 /* QCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0715834E96000CA104 /* QCMainViewController.m */; };
+		EECF8D0B15834E96000CA104 /* QCMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF8D0915834E96000CA104 /* QCMainViewController.xib */; };
+		EECF8D1515836A8E000CA104 /* QCLuckItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D1415836A8E000CA104 /* QCLuckItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE0C166C158386F800B879A6 /* QCLuckItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItemTableViewCell.h; sourceTree = "<group>"; };
+		EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItemTableViewCell.m; sourceTree = "<group>"; };
+		EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemTableViewCell.xib; sourceTree = "<group>"; };
 		EECF8CF015834E96000CA104 /* LuckLottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckLottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECF8CF415834E96000CA104 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EECF8CF615834E96000CA104 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EECF8CF815834E96000CA104 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EECF8CFC15834E96000CA104 /* LuckLottery-Info.plist */ = {isa = PBXFileReference; path = "LuckLottery-Info.plist"; sourceTree = "<group>"; };
-		EECF8CFE15834E96000CA104 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EECF8CFC15834E96000CA104 /* LuckLottery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuckLottery-Info.plist"; sourceTree = "<group>"; };
 		EECF8D0015834E96000CA104 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EECF8D0215834E96000CA104 /* LuckLottery-Prefix.pch */ = {isa = PBXFileReference; path = "LuckLottery-Prefix.pch"; sourceTree = "<group>"; };
-		EECF8D0315834E96000CA104 /* QCAppDelegate.h */ = {isa = PBXFileReference; path = QCAppDelegate.h; sourceTree = "<group>"; };
+		EECF8D0215834E96000CA104 /* LuckLottery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LuckLottery-Prefix.pch"; sourceTree = "<group>"; };
+		EECF8D0315834E96000CA104 /* QCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCAppDelegate.h; sourceTree = "<group>"; };
 		EECF8D0415834E96000CA104 /* QCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCAppDelegate.m; sourceTree = "<group>"; };
-		EECF8D0615834E96000CA104 /* QCViewController.h */ = {isa = PBXFileReference; path = QCViewController.h; sourceTree = "<group>"; };
-		EECF8D0715834E96000CA104 /* QCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCViewController.m; sourceTree = "<group>"; };
-		EECF8D0A15834E96000CA104 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QCViewController.xib; sourceTree = "<group>"; };
+		EECF8D0615834E96000CA104 /* QCMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCMainViewController.h; sourceTree = "<group>"; };
+		EECF8D0715834E96000CA104 /* QCMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCMainViewController.m; sourceTree = "<group>"; };
+		EECF8D111583526B000CA104 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "/Users/sunwu/work/LuckLottery/LuckLottery/zh-Hans.lproj/QCMainViewController.xib"; sourceTree = "<absolute>"; };
+		EECF8D121583526B000CA104 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "/Users/sunwu/work/LuckLottery/LuckLottery/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
+		EECF8D1315836A8E000CA104 /* QCLuckItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItem.h; sourceTree = "<group>"; };
+		EECF8D1415836A8E000CA104 /* QCLuckItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +87,14 @@
 			children = (
 				EECF8D0315834E96000CA104 /* QCAppDelegate.h */,
 				EECF8D0415834E96000CA104 /* QCAppDelegate.m */,
-				EECF8D0615834E96000CA104 /* QCViewController.h */,
-				EECF8D0715834E96000CA104 /* QCViewController.m */,
-				EECF8D0915834E96000CA104 /* QCViewController.xib */,
+				EECF8D0615834E96000CA104 /* QCMainViewController.h */,
+				EECF8D0715834E96000CA104 /* QCMainViewController.m */,
+				EECF8D0915834E96000CA104 /* QCMainViewController.xib */,
+				EE0C166C158386F800B879A6 /* QCLuckItemTableViewCell.h */,
+				EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */,
+				EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */,
+				EECF8D1315836A8E000CA104 /* QCLuckItem.h */,
+				EECF8D1415836A8E000CA104 /* QCLuckItem.m */,
 				EECF8CFB15834E96000CA104 /* Supporting Files */,
 			);
 			path = LuckLottery;
@@ -150,7 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EECF8CFF15834E96000CA104 /* InfoPlist.strings in Resources */,
-				EECF8D0B15834E96000CA104 /* QCViewController.xib in Resources */,
+				EECF8D0B15834E96000CA104 /* QCMainViewController.xib in Resources */,
+				EE0C16711583872700B879A6 /* QCLuckItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +177,9 @@
 			files = (
 				EECF8D0115834E96000CA104 /* main.m in Sources */,
 				EECF8D0515834E96000CA104 /* QCAppDelegate.m in Sources */,
-				EECF8D0815834E96000CA104 /* QCViewController.m in Sources */,
+				EECF8D0815834E96000CA104 /* QCMainViewController.m in Sources */,
+				EECF8D1515836A8E000CA104 /* QCLuckItem.m in Sources */,
+				EE0C166E158386F800B879A6 /* QCLuckItemTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,17 +189,17 @@
 		EECF8CFD15834E96000CA104 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EECF8CFE15834E96000CA104 /* en */,
+				EECF8D121583526B000CA104 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		EECF8D0915834E96000CA104 /* QCViewController.xib */ = {
+		EECF8D0915834E96000CA104 /* QCMainViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EECF8D0A15834E96000CA104 /* en */,
+				EECF8D111583526B000CA104 /* zh-Hans */,
 			);
-			name = QCViewController.xib;
+			name = QCMainViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -275,6 +291,7 @@
 				EECF8D1015834E96000CA104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class QCViewController;
+@class QCMainViewController;
 
 @interface QCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) QCViewController *viewController;
+@property (strong, nonatomic) QCMainViewController *viewController;
 
 @end

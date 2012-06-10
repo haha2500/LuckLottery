@@ -8,7 +8,7 @@
 
 #import "QCAppDelegate.h"
 
-#import "QCViewController.h"
+#import "QCMainViewController.h"
 
 @implementation QCAppDelegate
 
@@ -19,8 +19,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[QCViewController alloc] initWithNibName:@"QCViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.viewController = [[QCMainViewController alloc] initWithNibName:@"QCMainViewController" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:self.viewController];
+    
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -52,4 +54,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
++ (void)initialize
+{
+    // 设置配置初始值
+    
+  /*  NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:@"彩神通关注码", @"Key_Name1", [NSDate date], @"Key_Date1", @"安装幸运日", @"Key_Name2", [NSDate date], @"Key_Date2", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];*/
+}
 @end
