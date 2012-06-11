@@ -8,6 +8,7 @@
 
 #import "QCMainViewController.h"
 #import "QCLuckItemTableViewCell.h"
+#import "QCHistoryViewController.h"
 
 @interface QCMainViewController ()
 
@@ -20,13 +21,6 @@
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
-        // 设置导航栏按钮和标题
-   //     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew:)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];
-
-        self.navigationItem.title = @"幸运彩票-福彩3D";   // LOTTERY
-        
         NSArray *array = [[NSUserDefaults standardUserDefaults] arrayForKey:@"LuckItems"];
         if ([array count] > 0) // 直接使用设置中的值
         {
@@ -57,6 +51,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    // 设置导航栏按钮和标题
+    //     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];
+    
+    self.navigationItem.title = @"福彩3D关注码";   // LOTTERY
 }
 
 - (void)viewDidUnload
@@ -124,4 +124,15 @@
 {
     return UITableViewCellEditingStyleNone;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+     QCHistoryViewController *detailViewController = [[QCHistoryViewController alloc] initWithNibName:@"QCHistoryViewController" bundle:nil];
+     detailViewController.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+
+}
+
 @end

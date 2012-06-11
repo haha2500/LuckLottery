@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		EE0C166E158386F800B879A6 /* QCLuckItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */; };
 		EE0C16711583872700B879A6 /* QCLuckItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */; };
+		EE0C1679158565FA00B879A6 /* QCHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C1677158565FA00B879A6 /* QCHistoryViewController.m */; };
+		EE0C167A158565FA00B879A6 /* QCHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C1678158565FA00B879A6 /* QCHistoryViewController.xib */; };
+		EE0C167F15856F2700B879A6 /* QCLuckItemDateSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */; };
+		EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */; };
 		EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF415834E96000CA104 /* UIKit.framework */; };
 		EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF615834E96000CA104 /* Foundation.framework */; };
 		EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF815834E96000CA104 /* CoreGraphics.framework */; };
@@ -24,6 +28,12 @@
 		EE0C166C158386F800B879A6 /* QCLuckItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItemTableViewCell.h; sourceTree = "<group>"; };
 		EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItemTableViewCell.m; sourceTree = "<group>"; };
 		EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemTableViewCell.xib; sourceTree = "<group>"; };
+		EE0C1676158565FA00B879A6 /* QCHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCHistoryViewController.h; sourceTree = "<group>"; };
+		EE0C1677158565FA00B879A6 /* QCHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCHistoryViewController.m; sourceTree = "<group>"; };
+		EE0C1678158565FA00B879A6 /* QCHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCHistoryViewController.xib; sourceTree = "<group>"; };
+		EE0C167C15856F2700B879A6 /* QCLuckItemDateSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItemDateSetViewController.h; sourceTree = "<group>"; };
+		EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItemDateSetViewController.m; sourceTree = "<group>"; };
+		EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemDateSetViewController.xib; sourceTree = "<group>"; };
 		EECF8CF015834E96000CA104 /* LuckLottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckLottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECF8CF415834E96000CA104 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EECF8CF615834E96000CA104 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,11 +100,17 @@
 				EECF8D0615834E96000CA104 /* QCMainViewController.h */,
 				EECF8D0715834E96000CA104 /* QCMainViewController.m */,
 				EECF8D0915834E96000CA104 /* QCMainViewController.xib */,
+				EE0C1676158565FA00B879A6 /* QCHistoryViewController.h */,
+				EE0C1677158565FA00B879A6 /* QCHistoryViewController.m */,
+				EE0C1678158565FA00B879A6 /* QCHistoryViewController.xib */,
 				EE0C166C158386F800B879A6 /* QCLuckItemTableViewCell.h */,
 				EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */,
 				EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */,
 				EECF8D1315836A8E000CA104 /* QCLuckItem.h */,
 				EECF8D1415836A8E000CA104 /* QCLuckItem.m */,
+				EE0C167C15856F2700B879A6 /* QCLuckItemDateSetViewController.h */,
+				EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */,
+				EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */,
 				EECF8CFB15834E96000CA104 /* Supporting Files */,
 			);
 			path = LuckLottery;
@@ -165,6 +181,8 @@
 				EECF8CFF15834E96000CA104 /* InfoPlist.strings in Resources */,
 				EECF8D0B15834E96000CA104 /* QCMainViewController.xib in Resources */,
 				EE0C16711583872700B879A6 /* QCLuckItemTableViewCell.xib in Resources */,
+				EE0C167A158565FA00B879A6 /* QCHistoryViewController.xib in Resources */,
+				EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +198,8 @@
 				EECF8D0815834E96000CA104 /* QCMainViewController.m in Sources */,
 				EECF8D1515836A8E000CA104 /* QCLuckItem.m in Sources */,
 				EE0C166E158386F800B879A6 /* QCLuckItemTableViewCell.m in Sources */,
+				EE0C1679158565FA00B879A6 /* QCHistoryViewController.m in Sources */,
+				EE0C167F15856F2700B879A6 /* QCLuckItemDateSetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
