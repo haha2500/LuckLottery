@@ -10,14 +10,16 @@
 
 @implementation QCLuckItemTableViewCell
 @synthesize labelName;
-@synthesize labelNumbers;
 @synthesize lableValue;
+@synthesize ballImage1;
+@synthesize numberArray;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -29,4 +31,24 @@
     // Configure the view for the selected state
 }
 
+- (void)setNumber:(Byte)number AtIndex:(Byte)index
+{
+    [ballImage1 setType:0 andValue:number];
+}
+/*
+- (void)drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIImage *imageOrange =  [UIImage imageNamed:@"ball_orange.png"];
+    
+    CGRect rectBall = CGRectMake(200, 0, 25, 25);
+    [[UIColor whiteColor] setFill];
+    CGContextFillRect(context, rect);
+    CGContextDrawImage(context, rectBall, [imageOrange CGImage]);
+ //   CGContextStrokePath(context);
+    //[imageOrange drawInRect:rectBall];
+    
+    [super drawRect:rect];
+}
+ */
 @end

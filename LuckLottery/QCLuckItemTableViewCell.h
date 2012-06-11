@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QCBallImageView.h"
 
 @interface QCLuckItemTableViewCell : UITableViewCell
-
+@property (strong, nonatomic) NSArray *numberArray;
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
-@property (weak, nonatomic) IBOutlet UILabel *labelNumbers;
 @property (weak, nonatomic) IBOutlet UILabel *lableValue;
+@property (weak, nonatomic) IBOutlet QCBallImageView *ballImage1;
+
+- (void)setNumber:(Byte)number AtIndex:(Byte)index;
+
 @end

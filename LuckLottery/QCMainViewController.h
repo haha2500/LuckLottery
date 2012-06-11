@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DMAdView.h"
 #import "QCLuckItem.h"
 
-@interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DMAdViewDelegate>
+{
+    DMAdView *_dmAdView;
+    BOOL _bADLoadOK;
+}
+
 @property (strong, nonatomic) NSMutableArray *luckItemArray;
 @end

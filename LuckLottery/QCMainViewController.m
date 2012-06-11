@@ -21,6 +21,12 @@
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
+        // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID
+        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJyM1ouMGoULfJaL" size:DOMOB_AD_SIZE_320x50];
+        // 设置广告视图的位置
+        _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+        
+        // 获取设置
         NSArray *array = [[NSUserDefaults standardUserDefaults] arrayForKey:@"LuckItems"];
         if ([array count] > 0) // 直接使用设置中的值
         {
@@ -29,8 +35,8 @@
         else  // 初始化
         {
             self.luckItemArray = [[NSMutableArray alloc] init];
-            QCLuckItem *luckItemDate = [QCLuckItem luckItemWithType:kLuckItemTypeDate andName:@"幸运日关注码"];
-            QCLuckItem *luckItemNumber = [QCLuckItem luckItemWithType:kLuckItemTypeNumber andName:@"幸运数字关注码"];
+            QCLuckItem *luckItemDate = [QCLuckItem luckItemWithType:kLuckItemTypeDate andName:@"幸运日推荐码"];
+            QCLuckItem *luckItemNumber = [QCLuckItem luckItemWithType:kLuckItemTypeNumber andName:@"幸运数字推荐码"];
       /*      QCLuckItem *luckItemPerson = [QCLuckItem luckItemWithType:kLuckItemTypePerson andName:@"贵人关注码"];
             QCLuckItem *luckItemAddress = [QCLuckItem luckItemWithType:kLuckItemTypeAddress andName:@"宝地关注码"];
             QCLuckItem *luckItemCarNumber = [QCLuckItem luckItemWithType:kLuckItemTypeCarNumber andName:@"车牌号关注码"];
@@ -56,18 +62,46 @@
     //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];
     
-    self.navigationItem.title = @"福彩3D关注码";   // LOTTERY
+    self.navigationItem.title = @"福彩3D幸运码";   // LOTTERY
+    
+    _bADLoadOK = NO;
+    _dmAdView.delegate = self;              // 设置 Delegate
+    _dmAdView.rootViewController = self;    // 设置 RootViewController
+    [self.view addSubview:_dmAdView];       // 将广告视图添加到父视图中
+    [_dmAdView loadAd];                     // 开始加载广告
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    [_dmAdView removeFromSuperview]; // 将广告试图从父视图中移除
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc
+{
+    _dmAdView.delegate = nil;
+    _dmAdView.rootViewController = nil;
+}
+
+#pragma mark - DMAdViewDelegate Method
+// 成功加载广告后，回调该方法
+- (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView
+{
+    _bADLoadOK = YES;
+    [self.tableView reloadData];
+}
+
+// 加载广告失败后，回调该方法
+- (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error
+{
+    _bADLoadOK = NO;
+    [_dmAdView loadAd]; // 重新加载
 }
 
 #pragma mark - UITableViewDelegate and UITableViewDataSource Method
@@ -104,13 +138,19 @@
     QCLuckItem *luckItem = [self.luckItemArray objectAtIndex:nIndex];
     cell.labelName.text = luckItem.strName;
     cell.lableValue.text = (luckItem.strValue == nil) ?  @"（未设置）" : luckItem.strValue;
-    
+    [cell setNumber:nIndex AtIndex:0];
+
     return (UITableViewCell *)cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 76;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 60 + (_bADLoadOK ? 50 : 0);
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -132,7 +172,24 @@
      detailViewController.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
+}
 
+#pragma mark -
+- (void)downloadData:(id)sender
+{
+    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_sz.asp?ver=2&lastdate=0&lasttime=0&lotteryid=11000130&lastissue=%d", 2012001];
+    NSURL *url = [NSURL URLWithString:strURL];
+    
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    if (data == nil)
+    {
+        return ;       // 下载失败，网络不通？
+    }
+    int nBufLen = [data length];
+    if(nBufLen < 2)
+	{
+        return ;       // 下载失败，数据长度不够
+	}
 }
 
 @end

@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DMAdView.h"
 #import "QCLuckItem.h"
 #import "QCLuckItemDateSetViewController.h"
 
-@interface QCHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface QCHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DMAdViewDelegate>
+{
+    DMAdView *_dmAdView;
+    BOOL _bADLoadOK;
+}
 @property (strong, nonatomic) QCLuckItem *luckItem;
 @end
