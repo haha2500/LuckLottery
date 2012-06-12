@@ -20,6 +20,8 @@
 		EE417B361585C48600B77E45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B351585C48600B77E45 /* SystemConfiguration.framework */; };
 		EE417B391585DC9200B77E45 /* ball_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B371585DC9200B77E45 /* ball_orange.png */; };
 		EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B381585DC9200B77E45 /* ball_red.png */; };
+		EEA9B087158730D40054C1EB /* QCHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */; };
+		EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */; };
 		EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF415834E96000CA104 /* UIKit.framework */; };
 		EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF615834E96000CA104 /* Foundation.framework */; };
 		EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF815834E96000CA104 /* CoreGraphics.framework */; };
@@ -52,6 +54,9 @@
 		EE417B351585C48600B77E45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EE417B371585DC9200B77E45 /* ball_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_orange.png; sourceTree = "<group>"; };
 		EE417B381585DC9200B77E45 /* ball_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_red.png; sourceTree = "<group>"; };
+		EEA9B085158730D40054C1EB /* QCHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCHistoryTableViewCell.h; sourceTree = "<group>"; };
+		EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCHistoryTableViewCell.m; sourceTree = "<group>"; };
+		EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		EECF8CF015834E96000CA104 /* LuckLottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckLottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECF8CF415834E96000CA104 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EECF8CF615834E96000CA104 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +152,9 @@
 				EE0C1676158565FA00B879A6 /* QCHistoryViewController.h */,
 				EE0C1677158565FA00B879A6 /* QCHistoryViewController.m */,
 				EE0C1678158565FA00B879A6 /* QCHistoryViewController.xib */,
+				EEA9B085158730D40054C1EB /* QCHistoryTableViewCell.h */,
+				EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */,
+				EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */,
 				EE0C166C158386F800B879A6 /* QCLuckItemTableViewCell.h */,
 				EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */,
 				EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */,
@@ -234,6 +242,7 @@
 				EE417B301585C44C00B77E45 /* DomobAdSDKBundle.bundle in Resources */,
 				EE417B391585DC9200B77E45 /* ball_orange.png in Resources */,
 				EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */,
+				EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +261,7 @@
 				EE0C1679158565FA00B879A6 /* QCHistoryViewController.m in Sources */,
 				EE0C167F15856F2700B879A6 /* QCLuckItemDateSetViewController.m in Sources */,
 				EE21AED71585F90000D28D6F /* QCBallImageView.m in Sources */,
+				EEA9B087158730D40054C1EB /* QCHistoryTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

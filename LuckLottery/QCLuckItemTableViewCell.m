@@ -11,7 +11,7 @@
 @implementation QCLuckItemTableViewCell
 @synthesize labelName;
 @synthesize lableValue;
-@synthesize ballImage1;
+@synthesize imageBallView;
 @synthesize numberArray;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -33,7 +33,11 @@
 
 - (void)setNumber:(Byte)number AtIndex:(Byte)index
 {
-    [ballImage1 setType:0 andValue:number];
+   /* [imageBallView removeAllBalls];
+    [imageBallView addBall:0 andValue:number];
+    [imageBallView addBall:1 andValue:number+1];
+    [imageBallView addBall:0 andValue:number+2];*/
+    [imageBallView setNeedTestNums];
 }
 /*
 - (void)drawRect:(CGRect)rect

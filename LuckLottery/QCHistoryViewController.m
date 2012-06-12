@@ -7,6 +7,7 @@
 //
 
 #import "QCHistoryViewController.h"
+#import "QCHistoryTableViewCell.h"
 
 @interface QCHistoryViewController ()
 
@@ -106,10 +107,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"HistoryTableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    QCHistoryTableViewCell *cell = (QCHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        UIViewController *vc = [[UIViewController alloc] initWithNibName:@"QCHistoryTableViewCell" bundle:nil];
+        
+        cell = (QCHistoryTableViewCell *)vc.view;
     }
     // Configure the cell...
     int row = [indexPath row];
@@ -117,15 +120,16 @@
     {
         if (row == 0)
         {
-            cell.textLabel.text = @"";
+            cell.lableIssue.text = cell.lableMatchCount.text = cell.lableNums.text = @"";
+            [cell.imageBallView removeAllBalls];
             return cell;
         }
         else
             row --;
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%d 2012101期 2012-01-01 试机号：123 开奖号：234 2 3 5 中1个", row];
-    return cell;
+  //  cell.textLabel.text = [NSString stringWithFormat:@"%d 2012101期 2012-01-01 试机号：123 开奖号：234 2 3 5 中1个", row];
+    return (UITableViewCell *)cell;
 }
 
 #pragma mark - Table view delegate

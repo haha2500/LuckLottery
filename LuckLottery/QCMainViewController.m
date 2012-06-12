@@ -177,7 +177,7 @@
 #pragma mark -
 - (void)downloadData:(id)sender
 {
-    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_sz.asp?ver=2&lastdate=0&lasttime=0&lotteryid=11000130&lastissue=%d", 2012001];
+    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", 2012101];
     NSURL *url = [NSURL URLWithString:strURL];
     
     NSData *data = [NSData dataWithContentsOfURL:url];

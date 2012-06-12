@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSArray *numberArray;
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 @property (weak, nonatomic) IBOutlet UILabel *lableValue;
-@property (weak, nonatomic) IBOutlet QCBallImageView *ballImage1;
+@property (weak, nonatomic) IBOutlet QCBallImageView *imageBallView;
 
 - (void)setNumber:(Byte)number AtIndex:(Byte)index;
 

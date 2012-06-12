@@ -8,12 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+// 定义号码球类型
+#define kBallTypeNormal             0X00        // 普通
+#define kBallTypeMatch              0X01        // 中出
+#define kBallTypeGold               0X02        // 金码
+#define kBallTypeLT                 0X80        // 乐透型号码
+
 @interface QCBallImageView : UIView
 {
-    UIImage *_imageBall;
-    Byte _btValue;
+    Byte _btCount;          // 号码球个数，如果为0xff则表示需要当前试机号，为0则表示需要开奖号
+    Byte _btTypes[8];       // 每个号码球的类型，见宏定义，如：kBallTypeMatch
+    Byte _btValues[8];      // 每个号码球的值
 }
 
-- (void)setType:(Byte)type andValue:(Byte)value;
+- (id)initWithCoder:(NSCoder *)aDecoder;
+- (void)setNeedTestNums;
+- (void)addBall:(Byte)type andValue:(Byte)value;
+- (void)removeAllBalls;
 
 @end
