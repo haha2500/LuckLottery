@@ -19,5 +19,10 @@
 
 - (void)setNumbers:(Byte *)numbers withDate:(NSInteger)date andIssue:(NSInteger)issue;
 - (void)set3DRecmdNums:(Byte *)recmdNums andTestRelatedNums:(Byte *)trNums;
+- (int)issue;
+- (NSString *)dateString;
+- (NSString *)issueString;
+- (NSString *)numbersString;
+- (NSString *)testNumbersString;
 
 @end

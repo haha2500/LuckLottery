@@ -16,6 +16,7 @@
     BOOL _bADLoadOK;
     NSURLConnection *connection;
     NSMutableData *downloadData;
+    UIAlertView *waitingDialog;
 }
 
 @property (strong, nonatomic) NSMutableArray *luckItemArray;

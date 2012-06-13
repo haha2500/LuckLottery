@@ -7,15 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QCDataItem.h"
 
 @interface QCDataStore : NSObject
 {
-    NSArray *dateItemArray;
-    Byte numberCount;
+    NSMutableArray *dataItemArray;  // 彩票数据数组
+    Byte numberCount;               // 彩票数据的号码个数
+    Byte downloadDataItemLen;       // 下载数据单元长度
 } 
-@property (readonly, nonatomic) NSArray *dateItemArray;
+@property (readonly, nonatomic) NSMutableArray *dataItemArray;
 @property (readonly, nonatomic) Byte numberCount;
 
 + (QCDataStore *)defaultStore;
 - (BOOL)updateNums:(char *)downloadDataBuf bufSize:(int)bufSize;
+- (int)lastIssue;
+- (QCDataItem *)lastDataItem;
+
 @end

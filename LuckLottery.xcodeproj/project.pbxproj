@@ -14,6 +14,8 @@
 		EE0C167F15856F2700B879A6 /* QCLuckItemDateSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */; };
 		EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */; };
 		EE21AED71585F90000D28D6F /* QCBallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE21AED61585F90000D28D6F /* QCBallImageView.m */; };
+		EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3ECF021588754F0094D9A0 /* ball_blue.png */; };
+		EE3ECF061588755D0094D9A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3ECF051588755D0094D9A0 /* Default.png */; };
 		EE417B301585C44C00B77E45 /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE417B2E1585C44C00B77E45 /* DomobAdSDKBundle.bundle */; };
 		EE417B311585C44C00B77E45 /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B2F1585C44C00B77E45 /* libDomobAdSDK.a */; };
 		EE417B341585C47800B77E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B331585C47800B77E45 /* CoreLocation.framework */; };
@@ -47,6 +49,8 @@
 		EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemDateSetViewController.xib; sourceTree = "<group>"; };
 		EE21AED51585F90000D28D6F /* QCBallImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCBallImageView.h; sourceTree = "<group>"; };
 		EE21AED61585F90000D28D6F /* QCBallImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCBallImageView.m; sourceTree = "<group>"; };
+		EE3ECF021588754F0094D9A0 /* ball_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_blue.png; sourceTree = "<group>"; };
+		EE3ECF051588755D0094D9A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		EE417B2A1585C44C00B77E45 /* DMAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAdView.h; sourceTree = "<group>"; };
 		EE417B2B1585C44C00B77E45 /* DMInterstitialAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMInterstitialAdController.h; sourceTree = "<group>"; };
 		EE417B2C1585C44C00B77E45 /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 		EECF8CFB15834E96000CA104 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE3ECF021588754F0094D9A0 /* ball_blue.png */,
+				EE3ECF051588755D0094D9A0 /* Default.png */,
 				EE417B371585DC9200B77E45 /* ball_orange.png */,
 				EE417B381585DC9200B77E45 /* ball_red.png */,
 				EECF8CFC15834E96000CA104 /* LuckLottery-Info.plist */,
@@ -253,6 +259,8 @@
 				EE417B391585DC9200B77E45 /* ball_orange.png in Resources */,
 				EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */,
 				EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */,
+				EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */,
+				EE3ECF061588755D0094D9A0 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

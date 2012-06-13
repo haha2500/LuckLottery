@@ -113,7 +113,17 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"开奖日期：2012-06-10 第2012100期 \n试机号：123 开奖号：345";
+    int nCount = [[[QCDataStore defaultStore] dataItemArray] count];
+    if (nCount == 0)
+    {
+        return @"请点击右上角的“刷新”按钮获取最新数据";
+    }
+    else
+    {
+        QCDataItem *dateItem = [[QCDataStore defaultStore] lastDataItem];
+        NSString *strTitle = [NSString stringWithFormat:@"开奖日期 %@  第%@期 \n试机号 %@  开奖号 %@", [dateItem dateString], [dateItem issueString], [dateItem testNumbersString], [dateItem numbersString]];
+        return strTitle;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -168,7 +178,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    if ([[[QCDataStore defaultStore] dateItemArray] count] > 0)
+    if ([[[QCDataStore defaultStore] dataItemArray] count] > 0)
     {
         QCHistoryViewController *detailViewController = [[QCHistoryViewController alloc] initWithNibName:@"QCHistoryViewController" bundle:nil];
         detailViewController.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
@@ -184,7 +194,16 @@
 #pragma mark -
 - (void)downloadData:(id)sender
 {
-    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", 2012101];
+    // 显示等待窗口
+    waitingDialog = [[UIAlertView alloc] initWithTitle:nil message:@"正在下载相关数据，请等待 ..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    [waitingDialog show];
+	UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityIndicator.center = CGPointMake(waitingDialog.bounds.size.width / 2.0f, waitingDialog.bounds.size.height - 46.0f);   
+    [activityIndicator startAnimating];
+	
+	[waitingDialog addSubview:activityIndicator];
+    
+    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
     NSURL *url = [NSURL URLWithString:strURL];
     
     NSURLRequest *requset = [NSURLRequest requestWithURL:url];
@@ -216,10 +235,18 @@
     }
     connection = nil;
     downloadData = nil;
+    
+    // 关闭等待窗口
+    [waitingDialog dismissWithClickedButtonIndex:0 animated:NO];
+    waitingDialog = nil;
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
 {
+    // 关闭等待窗口
+    [waitingDialog dismissWithClickedButtonIndex:0 animated:NO];
+    waitingDialog = nil;
+    
     connection = nil;
     downloadData = nil;
     NSString *errorString = [NSString stringWithFormat:@"下载数据失败：%@", [error localizedDescription]];

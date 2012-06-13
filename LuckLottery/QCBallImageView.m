@@ -52,7 +52,7 @@
     if (_btCount == 0)
     {
         [[UIColor grayColor] setFill];
-        NSString *strInfo = [[[QCDataStore defaultStore] dateItemArray] count] > 0 ? @"等待试机号..." : @"请刷新开奖数据";
+        NSString *strInfo = [[[QCDataStore defaultStore] dataItemArray] count] > 0 ? @"等待试机号..." : @"请刷新开奖数据";
         [strInfo drawAtPoint:CGPointMake(0, 5) withFont:[UIFont systemFontOfSize:14]];
         return ;
     }
