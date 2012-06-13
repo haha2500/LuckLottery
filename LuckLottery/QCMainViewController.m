@@ -144,11 +144,7 @@
     
     int nIndex = [indexPath row];
     QCLuckItem *luckItem = [self.luckItemArray objectAtIndex:nIndex];
-    cell.labelName.text = luckItem.strName;
-    cell.lableValue.text = (luckItem.strValue == nil) ?  @"（未设置）" : luckItem.strValue;
-    Byte btRecmdNums[8] = {0};
-    if([luckItem getRecmdNums:btRecmdNums atIndex:-1])
-        [cell setRecmdNums:btRecmdNums];
+    [cell setLuckItem:luckItem];
 
     return (UITableViewCell *)cell;
 }

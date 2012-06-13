@@ -32,15 +32,31 @@
     // Configure the view for the selected state
 }
 
-- (void)setRecmdNums:(Byte *)numbers
+- (void)setLuckItem:(QCLuckItem *)luckItem
 {
-    [imageBallView removeAllBalls];
+    labelName.text = luckItem.strName;
+    lableValue.text = (luckItem.strValue == nil) ?  @"（未设置）" : luckItem.strValue;
     
-    Byte btNumberCount = [[QCDataStore defaultStore] numberCount];
-    for (Byte i=0; i<btNumberCount; i++)
+    Byte btRecmdNums[8] = {0};
+    int nNumCount = [luckItem getRecmdNums:btRecmdNums atIndex:-1];
+    if(nNumCount == -1) // 没有开奖数据
     {
-        [imageBallView addBall:(i == btNumberCount-1 ? kBallTypeGold : kBallTypeNormal) andValue:numbers[i]];
+        
     }
+    else if(nNumCount == 0) // 没有推荐码
+    {
+        
+    }
+    else
+    {
+        [imageBallView removeAllBalls];
+        
+        for (int i=0; i<nNumCount; i++)
+        {
+            [imageBallView addBall:(i == 0 ? kBallTypeGold : kBallTypeNormal) andValue:btRecmdNums[i]];
+        }
+    }
+    
 }
 /*
 - (void)drawRect:(CGRect)rect

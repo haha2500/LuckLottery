@@ -28,6 +28,21 @@
     return nIssue;
 }
 
+- (Byte *)numbers
+{
+    return btNumbers;
+}
+
+- (Byte *)RecmdNums
+{
+    return btRecmdNums;
+}
+
+- (Byte *)TestRelatedNums
+{
+    return btTestRelatedNums;
+}
+
 - (NSString *)dateString
 {
     return [NSString stringWithFormat:@"%04d-%02d-%02d", nDate / 10000, (nDate / 100) % 100, nDate % 100];

@@ -22,11 +22,6 @@
     return self;
 }
 
-- (void)setNeedTestNums
-{
-    _btCount = 0XFF;
-}
-
 - (void)addBall:(Byte)type andValue:(Byte)value
 {
     assert(_btCount < 8);
@@ -34,6 +29,8 @@
     _btTypes[_btCount] = type;
     _btValues[_btCount] = value;
     _btCount ++;
+    
+    [self setNeedsDisplay];
 }
 
 - (void)removeAllBalls
@@ -41,6 +38,8 @@
     _btCount = 0;
     memset(_btTypes, 0, sizeof(_btTypes));
     memset(_btValues, 0, sizeof(_btValues));
+    
+    [self setNeedsDisplay];
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -76,7 +75,7 @@
         }
         else 
         {
-            imageBall = [UIImage imageNamed:@"ball_orange.png"];
+            imageBall = [UIImage imageNamed:@"ball_blue.png"];
             textColor = [UIColor blackColor];
         }
         

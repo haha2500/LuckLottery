@@ -7,6 +7,7 @@
 //
 
 #import "QCLuckItem.h"
+#import "QCDataStore.h"
 
 @implementation QCLuckItem
 @synthesize btType, strName, strValue, nValue;
@@ -45,9 +46,22 @@
     return self;
 }
 
-- (BOOL)getRecmdNums:(Byte *)recmdNumsOut atIndex:(int)issueIndex
+- (int)getRecmdNums:(Byte *)recmdNumsOut atIndex:(int)issueIndex
 {
-    return YES;
+    switch (btType)
+    {
+        case kLuckItemTypeCST:
+            return [self getRecmdNums_CST:recmdNumsOut atIndex:issueIndex];
+            break;
+        case kLuckItemTypeDate:
+  //          [self getCurrentDate];
+            break; 
+        case kLuckItemTypeNumber:
+   //         [self getCurrentTime];
+            break;
+    }
+
+    return 0;
 }
 
 #pragma mark - 
@@ -71,4 +85,36 @@
     nValue = [strValue intValue];
 }
 
+- (int)getRecmdNums_CST:(Byte *)recmdNumsOut atIndex:(int)issueIndex
+{
+    NSArray *dateItemArray = [[QCDataStore defaultStore] dataItemArray];
+    int nDataItemCount = [dateItemArray count];
+    
+    if (nDataItemCount == 0)
+    {
+        return -1;      // 没有开奖数据
+    }
+    
+    if (issueIndex >= nDataItemCount)
+    {
+        issueIndex = nDataItemCount - 1;
+    }
+    
+    if (issueIndex < 0)  // 获取最新推荐码
+    {
+        if (nDataItemCount == kHistoryDataItemCount)
+        {
+            return 0;   // 当前不是只含试机号的一期，则没有推荐值
+        }
+        issueIndex = kHistoryDataItemCount;
+    }
+    
+    // 获取推荐值信息
+    QCDataItem *dataItem = [dateItemArray objectAtIndex:issueIndex];
+    for (int i=0; i<3; i++)
+    {
+        recmdNumsOut[i] = [dataItem RecmdNums][i];
+    }
+    return 3;
+}
 @end
