@@ -9,6 +9,7 @@
 #import "QCMainViewController.h"
 #import "QCLuckItemTableViewCell.h"
 #import "QCHistoryViewController.h"
+#import "QCDataStore.h"
 
 @interface QCMainViewController ()
 
@@ -129,16 +130,15 @@
         UIViewController *vc = [[UIViewController alloc] initWithNibName:@"QCLuckItemTableViewCell" bundle:nil];
 
         cell = (QCLuckItemTableViewCell *)vc.view;
-
-       /* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;*/
     }
     
     int nIndex = [indexPath row];
     QCLuckItem *luckItem = [self.luckItemArray objectAtIndex:nIndex];
     cell.labelName.text = luckItem.strName;
     cell.lableValue.text = (luckItem.strValue == nil) ?  @"（未设置）" : luckItem.strValue;
-    [cell setNumber:nIndex AtIndex:0];
+    Byte btRecmdNums[8] = {0};
+    if([luckItem getRecmdNums:btRecmdNums atIndex:-1])
+        [cell setRecmdNums:btRecmdNums];
 
     return (UITableViewCell *)cell;
 }
@@ -168,10 +168,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-     QCHistoryViewController *detailViewController = [[QCHistoryViewController alloc] initWithNibName:@"QCHistoryViewController" bundle:nil];
-     detailViewController.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+    if ([[[QCDataStore defaultStore] dateItemArray] count] > 0)
+    {
+        QCHistoryViewController *detailViewController = [[QCHistoryViewController alloc] initWithNibName:@"QCHistoryViewController" bundle:nil];
+        detailViewController.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
+        // Pass the selected object to the new view controller.
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
+    else
+    {
+        [self downloadData:nil];    // 下载数据
+    }
 }
 
 #pragma mark -
@@ -180,16 +187,43 @@
     NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", 2012101];
     NSURL *url = [NSURL URLWithString:strURL];
     
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    if (data == nil)
-    {
-        return ;       // 下载失败，网络不通？
-    }
-    int nBufLen = [data length];
-    if(nBufLen < 2)
-	{
-        return ;       // 下载失败，数据长度不够
-	}
+    NSURLRequest *requset = [NSURLRequest requestWithURL:url];
+    downloadData = [[NSMutableData alloc] init];
+    
+    connection = [[NSURLConnection alloc] initWithRequest:requset delegate:self startImmediately:YES];
 }
 
+- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
+{
+    [downloadData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)conn
+{
+    int nBufLen = [downloadData length];
+    char *lpBuf = (char *)[downloadData bytes];
+    
+    // 载入新数据
+    if([[QCDataStore defaultStore] updateNums:lpBuf bufSize:nBufLen])
+    {
+        // 重新显示列表
+        [[self tableView] reloadData];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:@"下载数据失败，请稍后再试。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+        [alert show];
+    }
+    connection = nil;
+    downloadData = nil;
+}
+
+- (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
+{
+    connection = nil;
+    downloadData = nil;
+    NSString *errorString = [NSString stringWithFormat:@"下载数据失败：%@", [error localizedDescription]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:errorString delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+    [alert show];
+}
 @end

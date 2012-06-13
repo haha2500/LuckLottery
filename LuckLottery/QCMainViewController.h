@@ -14,6 +14,8 @@
 {
     DMAdView *_dmAdView;
     BOOL _bADLoadOK;
+    NSURLConnection *connection;
+    NSMutableData *downloadData;
 }
 
 @property (strong, nonatomic) NSMutableArray *luckItemArray;

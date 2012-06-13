@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lableValue;
 @property (weak, nonatomic) IBOutlet QCBallImageView *imageBallView;
 
-- (void)setNumber:(Byte)number AtIndex:(Byte)index;
+- (void)setRecmdNums:(Byte *)numbers;
 
 @end

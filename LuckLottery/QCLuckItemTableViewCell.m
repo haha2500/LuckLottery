@@ -7,6 +7,7 @@
 //
 
 #import "QCLuckItemTableViewCell.h"
+#import "QCDataStore.h"
 
 @implementation QCLuckItemTableViewCell
 @synthesize labelName;
@@ -31,13 +32,15 @@
     // Configure the view for the selected state
 }
 
-- (void)setNumber:(Byte)number AtIndex:(Byte)index
+- (void)setRecmdNums:(Byte *)numbers
 {
-   /* [imageBallView removeAllBalls];
-    [imageBallView addBall:0 andValue:number];
-    [imageBallView addBall:1 andValue:number+1];
-    [imageBallView addBall:0 andValue:number+2];*/
-    [imageBallView setNeedTestNums];
+    [imageBallView removeAllBalls];
+    
+    Byte btNumberCount = [[QCDataStore defaultStore] numberCount];
+    for (Byte i=0; i<btNumberCount; i++)
+    {
+        [imageBallView addBall:(i == btNumberCount-1 ? kBallTypeGold : kBallTypeNormal) andValue:numbers[i]];
+    }
 }
 /*
 - (void)drawRect:(CGRect)rect

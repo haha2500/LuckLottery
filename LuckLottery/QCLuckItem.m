@@ -13,7 +13,7 @@
 
 + (id)luckItemWithType:(Byte)type andName:(NSString *)name
 {
-    QCLuckItem *luckItem = [[QCLuckItem alloc] initWithType:type andName:name];
+    QCLuckItem *luckItem = [[self alloc] initWithType:type andName:name];
         
     return luckItem;
 }
@@ -45,6 +45,12 @@
     return self;
 }
 
+- (BOOL)getRecmdNums:(Byte *)recmdNumsOut atIndex:(int)issueIndex
+{
+    return YES;
+}
+
+#pragma mark - 
 - (void)getCurrentDate
 {
     NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];

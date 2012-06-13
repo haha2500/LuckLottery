@@ -7,6 +7,7 @@
 //
 
 #import "QCBallImageView.h"
+#import "QCDataStore.h"
 
 @implementation QCBallImageView
 
@@ -48,10 +49,10 @@
 {
     // Drawing code
     
-    if (_btCount == 0XFF)
+    if (_btCount == 0)
     {
         [[UIColor grayColor] setFill];
-        NSString *strInfo = @"等待试机号...";
+        NSString *strInfo = [[[QCDataStore defaultStore] dateItemArray] count] > 0 ? @"等待试机号..." : @"请刷新开奖数据";
         [strInfo drawAtPoint:CGPointMake(0, 5) withFont:[UIFont systemFontOfSize:14]];
         return ;
     }

@@ -22,6 +22,8 @@
 		EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B381585DC9200B77E45 /* ball_red.png */; };
 		EEA9B087158730D40054C1EB /* QCHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */; };
 		EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */; };
+		EEBC8AE7158776BC00E8B6A2 /* QCDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBC8AE6158776BC00E8B6A2 /* QCDataItem.m */; };
+		EEBC8AEB15877FDE00E8B6A2 /* QCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBC8AEA15877FDE00E8B6A2 /* QCDataStore.m */; };
 		EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF415834E96000CA104 /* UIKit.framework */; };
 		EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF615834E96000CA104 /* Foundation.framework */; };
 		EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF815834E96000CA104 /* CoreGraphics.framework */; };
@@ -57,6 +59,10 @@
 		EEA9B085158730D40054C1EB /* QCHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCHistoryTableViewCell.h; sourceTree = "<group>"; };
 		EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCHistoryTableViewCell.m; sourceTree = "<group>"; };
 		EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		EEBC8AE5158776BC00E8B6A2 /* QCDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCDataItem.h; sourceTree = "<group>"; };
+		EEBC8AE6158776BC00E8B6A2 /* QCDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDataItem.m; sourceTree = "<group>"; };
+		EEBC8AE915877FDE00E8B6A2 /* QCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCDataStore.h; sourceTree = "<group>"; };
+		EEBC8AEA15877FDE00E8B6A2 /* QCDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDataStore.m; sourceTree = "<group>"; };
 		EECF8CF015834E96000CA104 /* LuckLottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckLottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECF8CF415834E96000CA104 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EECF8CF615834E96000CA104 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,6 +171,10 @@
 				EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */,
 				EE21AED51585F90000D28D6F /* QCBallImageView.h */,
 				EE21AED61585F90000D28D6F /* QCBallImageView.m */,
+				EEBC8AE5158776BC00E8B6A2 /* QCDataItem.h */,
+				EEBC8AE6158776BC00E8B6A2 /* QCDataItem.m */,
+				EEBC8AE915877FDE00E8B6A2 /* QCDataStore.h */,
+				EEBC8AEA15877FDE00E8B6A2 /* QCDataStore.m */,
 				EECF8CFB15834E96000CA104 /* Supporting Files */,
 			);
 			path = LuckLottery;
@@ -262,6 +272,8 @@
 				EE0C167F15856F2700B879A6 /* QCLuckItemDateSetViewController.m in Sources */,
 				EE21AED71585F90000D28D6F /* QCBallImageView.m in Sources */,
 				EEA9B087158730D40054C1EB /* QCHistoryTableViewCell.m in Sources */,
+				EEBC8AE7158776BC00E8B6A2 /* QCDataItem.m in Sources */,
+				EEBC8AEB15877FDE00E8B6A2 /* QCDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
