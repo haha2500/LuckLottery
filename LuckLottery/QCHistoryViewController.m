@@ -136,12 +136,14 @@
     cell.lableNums.text = [NSString stringWithFormat:@"开奖号 %@", [dataItem numbersString]];
     
     Byte btRecmdNums[8] = {0}, btNumberCount = [[QCDataStore defaultStore] numberCount];
-    [luckItem getRecmdNums:btRecmdNums atIndex:nIndex];
+    int nMatchCount = 0;
+    [luckItem getRecmdNums:btRecmdNums atIndex:nIndex matchCount:&nMatchCount];
     [cell.imageBallView removeAllBalls];
     for (int i=0; i<btNumberCount; i++)
     {
-        [cell.imageBallView addBall:kBallTypeNormal andValue:btRecmdNums[i]]; 
+        [cell.imageBallView addBall:(btRecmdNums[i] & 0x80 ? kBallTypeMatch : kBallTypeNormal) andValue:btRecmdNums[i] & 0x7f]; 
     }
+    [cell setMatchCount:nMatchCount];
     
     return (UITableViewCell *)cell;
 }

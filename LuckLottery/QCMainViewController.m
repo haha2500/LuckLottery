@@ -120,8 +120,14 @@
     }
     else
     {
-        QCDataItem *dateItem = [[QCDataStore defaultStore] lastDataItem];
-        NSString *strTitle = [NSString stringWithFormat:@"开奖日期 %@  第%@期 \n试机号 %@  开奖号 %@", [dateItem dateString], [dateItem issueString], [dateItem testNumbersString], [dateItem numbersString]];
+        QCDataItem *dateItem = [[QCDataStore defaultStore] dataItemForecast];
+        NSMutableString *strTitle = [NSMutableString stringWithFormat:@"开奖日期 %@  第%@期 \n", [dateItem dateString], [dateItem issueString]];
+        NSString *strTestNums = [dateItem testNumbersString];
+        if (strTestNums != nil)
+        {
+            [strTitle appendFormat:@"试机号 %@  ", strTestNums];
+        }
+
         return strTitle;
     }
 }

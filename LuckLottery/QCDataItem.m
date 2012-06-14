@@ -12,7 +12,15 @@
 @implementation QCDataItem
 - (void)setNumbers:(Byte *)numbers withDate:(NSInteger)date andIssue:(NSInteger)issue
 {
-    memcpy(btNumbers, numbers, sizeof(btNumbers));
+    if (numbers == NULL)
+    {
+        memset(btNumbers, 0XFF, sizeof(btNumbers));
+    }
+    else
+    {
+        memcpy(btNumbers, numbers, sizeof(btNumbers));
+    }
+    
     nIssue = issue;
     nDate = date;
 }
@@ -55,6 +63,11 @@
 
 - (NSString *)numbersString
 {
+    if (btNumbers[0] == 0xff)
+    {
+        return nil;
+    }
+    
     int nNumberCount = [[QCDataStore defaultStore] numberCount];
     char szNumbers[8] = {0};
     for (int i=0; i<nNumberCount; i++)
@@ -66,6 +79,11 @@
 
 - (NSString *)testNumbersString
 {
+    if (btNumbers[3] == 0xff)
+    {
+        return nil;
+    }
+    
     return [NSString stringWithFormat:@"%d%d%d", btNumbers[3], btNumbers[4], btNumbers[5]];
 }
 

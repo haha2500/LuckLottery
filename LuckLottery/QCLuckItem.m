@@ -46,12 +46,12 @@
     return self;
 }
 
-- (int)getRecmdNums:(Byte *)recmdNumsOut atIndex:(int)issueIndex
+- (int)getRecmdNums:(Byte *)recmdNumsOut atIndex:(int)issueIndex matchCount:(int *)countOut
 {
     switch (btType)
     {
         case kLuckItemTypeCST:
-            return [self getRecmdNums_CST:recmdNumsOut atIndex:issueIndex];
+            return [self getRecmdNums_CST:recmdNumsOut atIndex:issueIndex matchCount:countOut];
             break;
         case kLuckItemTypeDate:
   //          [self getCurrentDate];
@@ -85,10 +85,10 @@
     nValue = [strValue intValue];
 }
 
-- (int)getRecmdNums_CST:(Byte *)recmdNumsOut atIndex:(int)issueIndex
+- (int)getRecmdNums_CST:(Byte *)recmdNumsOut atIndex:(int)issueIndex matchCount:(int *)countOut
 {
-    NSArray *dateItemArray = [[QCDataStore defaultStore] dataItemArray];
-    int nDataItemCount = [dateItemArray count];
+    NSArray *dataItemArray = [[QCDataStore defaultStore] dataItemArray];
+    int nDataItemCount = [dataItemArray count];
     
     if (nDataItemCount == 0)
     {
@@ -100,21 +100,49 @@
         issueIndex = nDataItemCount - 1;
     }
     
+    QCDataItem *dataItem = nil;
     if (issueIndex < 0)  // 获取最新推荐码
     {
-        if (nDataItemCount == kHistoryDataItemCount)
+        dataItem = [[QCDataStore defaultStore] dataItemForecast];
+        if ([dataItem numbers][3] == 0xff)
         {
             return 0;   // 当前不是只含试机号的一期，则没有推荐值
         }
-        issueIndex = kHistoryDataItemCount;
+    }
+    else 
+    {
+        dataItem = [dataItemArray objectAtIndex:issueIndex];
     }
     
     // 获取推荐值信息
-    QCDataItem *dataItem = [dateItemArray objectAtIndex:issueIndex];
     for (int i=0; i<3; i++)
     {
         recmdNumsOut[i] = [dataItem RecmdNums][i];
     }
+    
+    // 获取中出信息
+    if (countOut != NULL)
+    {
+        (*countOut) = 0;
+    }
+
+    Byte *pNums = [dataItem numbers];
+    for (int i=0; i<3; i++)
+    {
+        for (int j=0; j<3; j++)
+        {
+            if (recmdNumsOut[i] == pNums[j])
+            {
+                if (countOut != NULL)
+                {
+                    (*countOut) ++;
+                }
+                recmdNumsOut[i] |= 0X80;
+                break;
+            }
+        }
+    }
+    
     return 3;
 }
 @end

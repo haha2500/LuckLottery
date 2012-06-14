@@ -35,6 +35,7 @@
 
 - (void)removeAllBalls
 {
+    showText = nil;
     _btCount = 0;
     memset(_btTypes, 0, sizeof(_btTypes));
     memset(_btValues, 0, sizeof(_btValues));
@@ -48,11 +49,10 @@
 {
     // Drawing code
     
-    if (_btCount == 0)
+    if (showText != nil)
     {
         [[UIColor grayColor] setFill];
-        NSString *strInfo = [[[QCDataStore defaultStore] dataItemArray] count] > 0 ? @"等待试机号..." : @"请刷新开奖数据";
-        [strInfo drawAtPoint:CGPointMake(0, 5) withFont:[UIFont systemFontOfSize:14]];
+        [showText drawAtPoint:CGPointMake(0, 5) withFont:[UIFont systemFontOfSize:14]];
         return ;
     }
     
@@ -97,5 +97,10 @@
     }
 }
 
+- (void)setShowText:(NSString *)text
+{
+    [self removeAllBalls];
+    showText = text;
+}
 
 @end

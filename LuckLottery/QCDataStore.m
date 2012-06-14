@@ -12,7 +12,7 @@
 static QCDataStore *defaultStore = nil;
 
 @implementation QCDataStore
-@synthesize numberCount, dataItemArray;
+@synthesize numberCount, dataItemArray, dataItemForecast;
 
 + (QCDataStore *)defaultStore
 {
@@ -63,6 +63,8 @@ static QCDataStore *defaultStore = nil;
     int nIndex = 2, nDate = 0, nIssue = 0;
     char szTemp[16] = {0};
     Byte btNumbers[8] = {0}, btRecmdNums[3] = {0}, btTestRelatedNums[3] = {0};
+    BOOL bHasOnlyTestNums = NO;
+    dataItemForecast = nil;
     
     [dataItemArray removeLastObject];   // 删除最后一个数据，因为这个每次都会更新
     // 循环添加其他的数据
@@ -79,7 +81,17 @@ static QCDataStore *defaultStore = nil;
         nIssue = atoi(szTemp) + (nDate / 10000) * 1000;
         for (int j=0; j<6; j++)
         {
-            btNumbers[j] = downloadDataBuf[nIndex++] - '0';
+            if (downloadDataBuf[nIndex] == 'A')
+            {
+                btNumbers[j] =  0xff;
+                bHasOnlyTestNums = YES;
+            }
+            else 
+            {
+                btNumbers[j] = downloadDataBuf[nIndex] - '0';
+            }
+            
+            nIndex++;
         }
         [newItem setNumbers:btNumbers withDate:nDate andIssue:nIssue];
         for (int j=0; j<3; j++)
@@ -91,7 +103,15 @@ static QCDataStore *defaultStore = nil;
             btTestRelatedNums[j] = downloadDataBuf[nIndex++] - '0';
         }
         [newItem set3DRecmdNums:btRecmdNums andTestRelatedNums:btTestRelatedNums];
-        [dataItemArray addObject:newItem];
+        
+        if (bHasOnlyTestNums)
+        {
+            dataItemForecast = newItem;
+        }
+        else
+        {
+            [dataItemArray addObject:newItem];
+        }
     }
     
     // 只保留最后30期数据
@@ -100,29 +120,49 @@ static QCDataStore *defaultStore = nil;
         NSRange range = {0, [dataItemArray count] - kHistoryDataItemCount};
         [dataItemArray removeObjectsInRange:range];
     }
-    
+    if (!bHasOnlyTestNums)  // 增加预测期数据
+    {
+        dataItemForecast = [[QCDataItem alloc] init];
+        int nNextIssue = 0;
+        int nNextDate = [self getNextDate:nDate andIssue:&nNextIssue];
+        [dataItemForecast setNumbers:NULL withDate:nNextDate andIssue:nNextIssue];
+    }
     return YES;
 }
 
 - (int)lastIssue
 {
-    QCDataItem *lastDataItem = [self lastDataItem];
-    if (lastDataItem == nil)
+    if (dataItemForecast == nil)
     {
         return 2012100;
     }
     
-    return [lastDataItem issue];
+    return [dataItemForecast issue];
 }
 
-- (QCDataItem *)lastDataItem
+#pragma mark -
+- (int)getNextDate:(int)date andIssue:(int *)issue
 {
-    if ([dataItemArray count] == 0)
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:(date % 100)];
+    [comps setMonth:((date / 100) % 100)];
+    [comps setYear:(date / 10000)];
+    NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate *curdate = [gregorian dateFromComponents:comps];
+    
+    NSDate *newDate = [curdate dateByAddingTimeInterval:1 * 24 * 3600];
+    
+    comps = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:newDate];
+    
+    if ([comps year] != date / 10000)   // 跨年
     {
-        return nil;
+        (*issue) = [comps year] * 1000 + 1;
+    }
+    else
+    {
+        (*issue) ++;
     }
     
-    QCDataItem *lastDataItem = [dataItemArray objectAtIndex:[dataItemArray count] - 1];
-    return lastDataItem;
+    return [comps year] * 10000 + [comps month] * 100 + [comps day];
 }
 @end

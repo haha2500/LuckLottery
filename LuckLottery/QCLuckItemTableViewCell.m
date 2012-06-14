@@ -38,14 +38,14 @@
     lableValue.text = (luckItem.strValue == nil) ?  @"（未设置）" : luckItem.strValue;
     
     Byte btRecmdNums[8] = {0};
-    int nNumCount = [luckItem getRecmdNums:btRecmdNums atIndex:-1];
+    int nNumCount = [luckItem getRecmdNums:btRecmdNums atIndex:-1 matchCount:NULL];
     if(nNumCount == -1) // 没有开奖数据
     {
-        
+        [imageBallView setShowText:@"请刷新开奖数据"];
     }
     else if(nNumCount == 0) // 没有推荐码
     {
-        
+        [imageBallView setShowText:@"等待试机号..."];
     }
     else
     {

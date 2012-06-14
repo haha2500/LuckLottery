@@ -19,10 +19,12 @@
     Byte _btCount;          // 号码球个数，为0则表示需要开奖号
     Byte _btTypes[8];       // 每个号码球的类型，见宏定义，如：kBallTypeMatch
     Byte _btValues[8];      // 每个号码球的值
+    NSString *showText;     // 显示的文本，如果不为nil则显示该文本，否则显示号码球
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 - (void)addBall:(Byte)type andValue:(Byte)value;
 - (void)removeAllBalls;
+- (void)setShowText:(NSString *)text;
 
 @end

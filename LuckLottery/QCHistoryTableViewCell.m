@@ -30,4 +30,28 @@
     // Configure the view for the selected state
 }
 
+- (void)setMatchCount:(int)nCount
+{
+    lableMatchCount.text = [NSString stringWithFormat:@"中 %d 个", nCount];
+    
+    switch (nCount)
+    {
+        case 0:
+            lableMatchCount.textColor = [UIColor grayColor];
+            break;
+        case 1:
+            lableMatchCount.textColor = [UIColor blackColor];
+            break;
+        case 2:
+            lableMatchCount.textColor = [UIColor blueColor];
+            break;
+        case 3:
+            lableMatchCount.textColor = [UIColor redColor];
+            break;    
+        default:
+            lableMatchCount.textColor = [UIColor orangeColor];
+            break;
+    }
+}
+
 @end

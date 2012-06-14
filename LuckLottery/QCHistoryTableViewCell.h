@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lableMatchCount;
 @property (weak, nonatomic) IBOutlet QCBallImageView *imageBallView;
 
+- (void)setMatchCount:(int)nCount;
 @end
