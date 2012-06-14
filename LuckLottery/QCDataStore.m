@@ -95,9 +95,9 @@ static QCDataStore *defaultStore = nil;
     }
     
     // 只保留最后30期数据
-    if ([dataItemArray count] > 30)
+    if ([dataItemArray count] > kHistoryDataItemCount)
     {
-        NSRange range = {0, [dataItemArray count] - 30};
+        NSRange range = {0, [dataItemArray count] - kHistoryDataItemCount};
         [dataItemArray removeObjectsInRange:range];
     }
     

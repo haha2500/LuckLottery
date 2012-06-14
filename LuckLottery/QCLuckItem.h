@@ -32,7 +32,7 @@
 + (id)luckItemWithType:(Byte)type andName:(NSString *)name;
 - (id)initWithType:(Byte)type andName:(NSString *)name;
 
-// 获取指定期号索引的推荐值，issueIndex为-1则表示获取最新的推荐值
-- (BOOL)getRecmdNums:(Byte *)recmdNumsOut atIndex:(int)issueIndex;
+// 获取指定期号索引的推荐值，issueIndex为-1则表示获取最新的推荐值，返回推荐值个数，为0则表示没有推荐值，为-1则表示没有开奖数据
+- (int)getRecmdNums:(Byte *)recmdNumsOut atIndex:(int)issueIndex;
 
 @end

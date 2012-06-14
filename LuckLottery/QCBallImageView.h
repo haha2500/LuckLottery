@@ -16,13 +16,12 @@
 
 @interface QCBallImageView : UIView
 {
-    Byte _btCount;          // 号码球个数，如果为0xff则表示需要当前试机号，为0则表示需要开奖号
+    Byte _btCount;          // 号码球个数，为0则表示需要开奖号
     Byte _btTypes[8];       // 每个号码球的类型，见宏定义，如：kBallTypeMatch
     Byte _btValues[8];      // 每个号码球的值
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
-- (void)setNeedTestNums;
 - (void)addBall:(Byte)type andValue:(Byte)value;
 - (void)removeAllBalls;
 

@@ -130,11 +130,19 @@
     }
     
     NSArray *dataItems = [[QCDataStore defaultStore] dataItemArray];
-    QCDataItem *dataItem = [dataItems objectAtIndex:([dataItems count] - row - 1)];
+    int nIndex = [dataItems count] - row - 1;
+    QCDataItem *dataItem = [dataItems objectAtIndex:nIndex];
     cell.lableIssue.text = [NSString stringWithFormat:@"%@  第%@期  试机号 %@", [dataItem dateString], [dataItem issueString], [dataItem testNumbersString]];
-     cell.lableNums.text = [NSString stringWithFormat:@"开奖号 %@", [dataItem numbersString]];
+    cell.lableNums.text = [NSString stringWithFormat:@"开奖号 %@", [dataItem numbersString]];
     
-  //  cell.textLabel.text = [NSString stringWithFormat:@"%d 2012101期 2012-01-01 试机号：123 开奖号：234 2 3 5 中1个", row];
+    Byte btRecmdNums[8] = {0}, btNumberCount = [[QCDataStore defaultStore] numberCount];
+    [luckItem getRecmdNums:btRecmdNums atIndex:nIndex];
+    [cell.imageBallView removeAllBalls];
+    for (int i=0; i<btNumberCount; i++)
+    {
+        [cell.imageBallView addBall:kBallTypeNormal andValue:btRecmdNums[i]]; 
+    }
+    
     return (UITableViewCell *)cell;
 }
 

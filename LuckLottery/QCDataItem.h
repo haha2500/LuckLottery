@@ -20,6 +20,10 @@
 - (void)setNumbers:(Byte *)numbers withDate:(NSInteger)date andIssue:(NSInteger)issue;
 - (void)set3DRecmdNums:(Byte *)recmdNums andTestRelatedNums:(Byte *)trNums;
 - (int)issue;
+- (Byte *)numbers;
+- (Byte *)RecmdNums;
+- (Byte *)TestRelatedNums;
+
 - (NSString *)dateString;
 - (NSString *)issueString;
 - (NSString *)numbersString;

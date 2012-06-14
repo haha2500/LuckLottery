@@ -187,8 +187,8 @@
 		EECF8CFB15834E96000CA104 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EE3ECF021588754F0094D9A0 /* ball_blue.png */,
 				EE3ECF051588755D0094D9A0 /* Default.png */,
+				EE3ECF021588754F0094D9A0 /* ball_blue.png */,
 				EE417B371585DC9200B77E45 /* ball_orange.png */,
 				EE417B381585DC9200B77E45 /* ball_red.png */,
 				EECF8CFC15834E96000CA104 /* LuckLottery-Info.plist */,

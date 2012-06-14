@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "QCDataItem.h"
 
+#define kHistoryDataItemCount           30          // 历史号码个数
+
 @interface QCDataStore : NSObject
 {
     NSMutableArray *dataItemArray;  // 彩票数据数组

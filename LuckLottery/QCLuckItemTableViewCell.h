@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "QCBallImageView.h"
+#import "QCLuckItem.h"
 
 @interface QCLuckItemTableViewCell : UITableViewCell
 @property (strong, nonatomic) NSArray *numberArray;
@@ -15,6 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lableValue;
 @property (weak, nonatomic) IBOutlet QCBallImageView *imageBallView;
 
-- (void)setRecmdNums:(Byte *)numbers;
+- (void)setLuckItem:(QCLuckItem *)luckItem;
 
 @end
