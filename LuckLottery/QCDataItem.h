@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QCDataItem : NSObject
+@interface QCDataItem : NSObject <NSCoding>
 {
     NSInteger nIssue;               // 开奖期号
     NSInteger nDate;                // 开奖日期
@@ -29,4 +29,5 @@
 - (NSString *)numbersString;
 - (NSString *)testNumbersString;
 
+- (BOOL)isEqual:(QCDataItem *)srcItem;
 @end

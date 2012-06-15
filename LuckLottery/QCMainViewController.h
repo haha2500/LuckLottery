@@ -17,6 +17,7 @@
     NSURLConnection *connection;
     NSMutableData *downloadData;
     UIAlertView *waitingDialog;
+    BOOL bPromptNoNewData;
 }
 
 @property (strong, nonatomic) NSMutableArray *luckItemArray;

@@ -235,7 +235,7 @@
     
     NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
     NSURL *url = [NSURL URLWithString:strURL];
-    
+    bPromptNoNewData = (sender == nil) ? NO : YES;
     NSURLRequest *requset = [NSURLRequest requestWithURL:url];
     downloadData = [[NSMutableData alloc] init];
     
@@ -253,15 +253,19 @@
     char *lpBuf = (char *)[downloadData bytes];
     
     // 载入新数据
-    if([[QCDataStore defaultStore] updateNums:lpBuf bufSize:nBufLen])
+    int nRtn = [[QCDataStore defaultStore] updateNums:lpBuf bufSize:nBufLen];
+    if(nRtn > 0)
     {
         // 重新显示列表
         [[self tableView] reloadData];
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:@"下载数据失败，请稍后再试。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
-        [alert show];
+        if (nRtn != 0 || bPromptNoNewData)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:((nRtn == 0) ? @"当前已是最新数据。" : @"下载数据失败，请稍后再试。") delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [alert show];
+        }
     }
     connection = nil;
     downloadData = nil;

@@ -87,4 +87,50 @@
     return [NSString stringWithFormat:@"%d%d%d", btNumbers[3], btNumbers[4], btNumbers[5]];
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) 
+    {
+        nIssue = [aDecoder decodeIntegerForKey:@"issue"]; 
+        nDate = [aDecoder decodeIntegerForKey:@"date"]; 
+        NSUInteger nLen = 0;
+        memcpy(btNumbers, [aDecoder decodeBytesForKey:@"numbers" returnedLength:&nLen], sizeof(btNumbers));
+        memcpy(btRecmdNums, [aDecoder decodeBytesForKey:@"recmdNums" returnedLength:&nLen], sizeof(btRecmdNums));
+        memcpy(btTestRelatedNums, [aDecoder decodeBytesForKey:@"testRelatedNums" returnedLength:&nLen], sizeof(btTestRelatedNums));
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:nIssue forKey:@"issue"];
+    [aCoder encodeInteger:nDate forKey:@"date"];
+    [aCoder encodeBytes:btNumbers length:sizeof(btNumbers) forKey:@"numbers"];
+    [aCoder encodeBytes:btRecmdNums length:sizeof(btRecmdNums) forKey:@"recmdNums"];
+    [aCoder encodeBytes:btTestRelatedNums length:sizeof(btTestRelatedNums) forKey:@"testRelatedNums"];
+}
+
+- (BOOL)isEqual:(QCDataItem *)srcItem
+{
+    if (nIssue != srcItem.issue)
+    {
+        return NO;
+    }
+    
+    if (memcmp(self.numbers, srcItem.numbers, sizeof(btNumbers)))
+    {
+        return NO;
+    }
+    if (memcmp(self.RecmdNums, srcItem.RecmdNums, sizeof(btRecmdNums)))
+    {
+        return NO;
+    }
+    if (memcmp(self.TestRelatedNums, srcItem.TestRelatedNums, sizeof(btTestRelatedNums)))
+    {
+        return NO;
+    }
+    
+    return YES;
+}
 @end

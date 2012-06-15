@@ -38,38 +38,49 @@ static QCDataStore *defaultStore = nil;
     
     if (self = [super init])
     {
-        dataItemArray = [[NSMutableArray alloc] init];
+        // 获取数据文件路径
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        strDataFilename = [documentsDirectory stringByAppendingPathComponent:@"FC3D"];
+        
+        // 装载数据文件
+        dataItemArray = [[NSMutableArray alloc] initWithContentsOfFile:strDataFilename];
+        if (dataItemArray == nil)
+        {
+            dataItemArray = [[NSMutableArray alloc] init];
+        }
+        
         numberCount = 3;
         downloadDataItemLen = 21;   // 3D
+        
     }
     
     return self;
 }
 
 #pragma mark -
-- (BOOL)updateNums:(char *)downloadDataBuf bufSize:(int)bufSize
+- (int)updateNums:(char *)downloadDataBuf bufSize:(int)bufSize
 {
     if ((bufSize % downloadDataItemLen) != 2)
 	{
-        return NO;       // 下载失败，数据长度不正确
+        return -1;       // 下载失败，数据长度不正确
 	}
     
     if (memcmp(downloadDataBuf, "1|", 2))
     {
-        return NO;      // 下载失败
+        return -1;      // 下载失败
     }
     
     int nCount = (bufSize - 2) / downloadDataItemLen;
     if (nCount == 0)
     {
-        return YES;      // 没有最新数据
+        return 0;      // 没有最新数据
     }
     
     int nIndex = 2, nDate = 0, nIssue = 0;
     char szTemp[16] = {0};
     Byte btNumbers[8] = {0}, btRecmdNums[3] = {0}, btTestRelatedNums[3] = {0};
     BOOL bHasOnlyTestNums = NO;
-    dataItemForecast = nil;
     
     // 循环添加其他的数据
     for (int i=0; i<nCount; i++)
@@ -110,6 +121,13 @@ static QCDataStore *defaultStore = nil;
         
         if (bHasOnlyTestNums)
         {
+            if (i == 0)
+            {
+                if ([dataItemForecast isEqual:newItem])
+                {
+                    return 0;
+                }
+            }
             dataItemForecast = newItem;
         }
         else
@@ -135,7 +153,14 @@ static QCDataStore *defaultStore = nil;
         int nNextDate = [self getNextDate:nDate andIssue:&nNextIssue];
         [dataItemForecast setNumbers:NULL withDate:nNextDate andIssue:nNextIssue];
     }
-    return YES;
+    
+    // 保存到数据文件
+    if([dataItemArray writeToFile:strDataFilename atomically:YES])
+    {
+        return 1;
+    }
+
+    return 1;
 }
 
 - (int)lastIssue
