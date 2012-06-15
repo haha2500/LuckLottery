@@ -14,6 +14,7 @@
 
 @implementation QCLuckItemDateSetViewController
 @synthesize luckItem;
+@synthesize datePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,14 +29,31 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = [NSString stringWithFormat:@"%@设置", luckItem.strName];
+    self.navigationItem.title = @"幸运日设置";
+    
+    NSDateComponents *dateComp = [[NSDateComponents alloc] init];
+    [dateComp setYear:(luckItem.nValue / 10000)];
+    [dateComp setMonth:((luckItem.nValue / 100) % 100)];
+    [dateComp setDay:(luckItem.nValue % 100)];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    [datePicker setDate:[calendar dateFromComponents:dateComp]];
 }
 
 - (void)viewDidUnload
 {
+    [self setDatePicker:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dateComp = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[datePicker date]];
+    luckItem.nValue = [dateComp year] * 10000 + [dateComp month] * 100 + [dateComp day];
+    luckItem.strValue = [NSString stringWithFormat:@"%04d年%02d月%02d日", [dateComp year], [dateComp month], [dateComp day]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

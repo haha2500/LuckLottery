@@ -22,6 +22,8 @@
 		EE417B361585C48600B77E45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B351585C48600B77E45 /* SystemConfiguration.framework */; };
 		EE417B391585DC9200B77E45 /* ball_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B371585DC9200B77E45 /* ball_orange.png */; };
 		EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B381585DC9200B77E45 /* ball_red.png */; };
+		EEA790BF158AB62700A94A3E /* QCLuckItemNumSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA790BD158AB62700A94A3E /* QCLuckItemNumSetViewController.m */; };
+		EEA790C0158AB62700A94A3E /* QCLuckItemNumSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA790BE158AB62700A94A3E /* QCLuckItemNumSetViewController.xib */; };
 		EEA9B087158730D40054C1EB /* QCHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */; };
 		EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */; };
 		EEBC8AE7158776BC00E8B6A2 /* QCDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBC8AE6158776BC00E8B6A2 /* QCDataItem.m */; };
@@ -60,6 +62,9 @@
 		EE417B351585C48600B77E45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EE417B371585DC9200B77E45 /* ball_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_orange.png; sourceTree = "<group>"; };
 		EE417B381585DC9200B77E45 /* ball_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_red.png; sourceTree = "<group>"; };
+		EEA790BC158AB62700A94A3E /* QCLuckItemNumSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItemNumSetViewController.h; sourceTree = "<group>"; };
+		EEA790BD158AB62700A94A3E /* QCLuckItemNumSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItemNumSetViewController.m; sourceTree = "<group>"; };
+		EEA790BE158AB62700A94A3E /* QCLuckItemNumSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemNumSetViewController.xib; sourceTree = "<group>"; };
 		EEA9B085158730D40054C1EB /* QCHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCHistoryTableViewCell.h; sourceTree = "<group>"; };
 		EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCHistoryTableViewCell.m; sourceTree = "<group>"; };
 		EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCHistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -173,6 +178,9 @@
 				EE0C167C15856F2700B879A6 /* QCLuckItemDateSetViewController.h */,
 				EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */,
 				EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */,
+				EEA790BC158AB62700A94A3E /* QCLuckItemNumSetViewController.h */,
+				EEA790BD158AB62700A94A3E /* QCLuckItemNumSetViewController.m */,
+				EEA790BE158AB62700A94A3E /* QCLuckItemNumSetViewController.xib */,
 				EE21AED51585F90000D28D6F /* QCBallImageView.h */,
 				EE21AED61585F90000D28D6F /* QCBallImageView.m */,
 				EEBC8AE5158776BC00E8B6A2 /* QCDataItem.h */,
@@ -261,6 +269,7 @@
 				EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */,
 				EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */,
 				EE3ECF061588755D0094D9A0 /* Default.png in Resources */,
+				EEA790C0158AB62700A94A3E /* QCLuckItemNumSetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +291,7 @@
 				EEA9B087158730D40054C1EB /* QCHistoryTableViewCell.m in Sources */,
 				EEBC8AE7158776BC00E8B6A2 /* QCDataItem.m in Sources */,
 				EEBC8AEB15877FDE00E8B6A2 /* QCDataStore.m in Sources */,
+				EEA790BF158AB62700A94A3E /* QCLuckItemNumSetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

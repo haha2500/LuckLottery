@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DMAdView.h"
 #import "QCLuckItem.h"
-#import "QCLuckItemDateSetViewController.h"
+
 
 @interface QCHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DMAdViewDelegate>
 {

@@ -56,17 +56,21 @@ static QCDataStore *defaultStore = nil;
     
     if (memcmp(downloadDataBuf, "1|", 2))
     {
-        return NO;         // 下载失败
+        return NO;      // 下载失败
     }
     
     int nCount = (bufSize - 2) / downloadDataItemLen;
+    if (nCount == 0)
+    {
+        return YES;      // 没有最新数据
+    }
+    
     int nIndex = 2, nDate = 0, nIssue = 0;
     char szTemp[16] = {0};
     Byte btNumbers[8] = {0}, btRecmdNums[3] = {0}, btTestRelatedNums[3] = {0};
     BOOL bHasOnlyTestNums = NO;
     dataItemForecast = nil;
     
-    [dataItemArray removeLastObject];   // 删除最后一个数据，因为这个每次都会更新
     // 循环添加其他的数据
     for (int i=0; i<nCount; i++)
     {
@@ -110,6 +114,10 @@ static QCDataStore *defaultStore = nil;
         }
         else
         {
+            if (i == 0)
+            {
+                [dataItemArray removeLastObject];   // 删除最后一个数据，因为这个每次都会更新
+            }
             [dataItemArray addObject:newItem];
         }
     }
@@ -123,7 +131,7 @@ static QCDataStore *defaultStore = nil;
     if (!bHasOnlyTestNums)  // 增加预测期数据
     {
         dataItemForecast = [[QCDataItem alloc] init];
-        int nNextIssue = 0;
+        int nNextIssue = nIssue;
         int nNextDate = [self getNextDate:nDate andIssue:&nNextIssue];
         [dataItemForecast setNumbers:NULL withDate:nNextDate andIssue:nNextIssue];
     }

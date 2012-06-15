@@ -26,8 +26,8 @@
 
 @property (readonly, nonatomic) Byte btType;
 @property (strong, nonatomic) NSString *strName;
-@property (readonly, nonatomic) NSString *strValue;
-@property (readonly, nonatomic) NSInteger nValue;
+@property (strong, nonatomic) NSString *strValue;
+@property (assign, nonatomic) NSInteger nValue;
 
 + (id)luckItemWithType:(Byte)type andName:(NSString *)name;
 - (id)initWithType:(Byte)type andName:(NSString *)name;

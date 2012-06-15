@@ -25,6 +25,5 @@
 + (QCDataStore *)defaultStore;
 - (BOOL)updateNums:(char *)downloadDataBuf bufSize:(int)bufSize;
 - (int)lastIssue;
-- (QCDataItem *)lastDataItem;
 
 @end

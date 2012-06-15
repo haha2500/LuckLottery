@@ -11,4 +11,5 @@
 
 @interface QCLuckItemDateSetViewController : UIViewController
 @property (strong, nonatomic) QCLuckItem *luckItem;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @end

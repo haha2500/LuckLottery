@@ -9,6 +9,8 @@
 #import "QCHistoryViewController.h"
 #import "QCHistoryTableViewCell.h"
 #import "QCDataStore.h"
+#import "QCLuckItemDateSetViewController.h"
+#import "QCLuckItemNumSetViewController.h"
 
 @interface QCHistoryViewController ()
 
@@ -164,8 +166,26 @@
 #pragma mark - 
 - (void)modifyLuckItem:(id)sender
 {
-    QCLuckItemDateSetViewController *dateSetVC = [[QCLuckItemDateSetViewController alloc] initWithNibName:@"QCLuckItemDateSetViewController" bundle:nil];
-    dateSetVC.luckItem = luckItem;
-    [self.navigationController pushViewController:dateSetVC animated:YES];
+    switch (luckItem.btType)
+    {
+        case kLuckItemTypeDate:
+        {
+            QCLuckItemDateSetViewController *dateSetVC = [[QCLuckItemDateSetViewController alloc] initWithNibName:@"QCLuckItemDateSetViewController" bundle:nil];
+            dateSetVC.luckItem = luckItem;
+            [self.navigationController pushViewController:dateSetVC animated:YES];
+        }
+        break;
+        case kLuckItemTypeNumber:
+        {
+            QCLuckItemNumSetViewController *numSetVC = [[QCLuckItemNumSetViewController alloc] initWithNibName:@"QCLuckItemNumSetViewController" bundle:nil];
+            numSetVC.luckItem = luckItem;
+            [self.navigationController pushViewController:numSetVC animated:YES];
+        }
+        break;
+            
+        default:
+            assert(NO);
+            break;
+    } 
 }
 @end
