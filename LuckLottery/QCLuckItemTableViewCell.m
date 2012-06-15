@@ -45,7 +45,7 @@
     }
     else if(nNumCount == 0) // 没有推荐码
     {
-        [imageBallView setShowText:@"等待试机号..."];
+        [imageBallView setShowText:@"请在试机号发布后刷新"];
     }
     else
     {

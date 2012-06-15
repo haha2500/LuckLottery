@@ -10,7 +10,9 @@
 #import "QCLuckItem.h"
 
 @interface QCLuckItemNumSetViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
-
+{
+    NSArray *numbersArray;
+}
 @property (strong, nonatomic) QCLuckItem *luckItem;
 @property (weak, nonatomic) IBOutlet UIPickerView *numPicker;
 

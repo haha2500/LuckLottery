@@ -53,7 +53,9 @@
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComp = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[datePicker date]];
     luckItem.nValue = [dateComp year] * 10000 + [dateComp month] * 100 + [dateComp day];
-    luckItem.strValue = [NSString stringWithFormat:@"%04d年%02d月%02d日", [dateComp year], [dateComp month], [dateComp day]];
+    luckItem.strValue = [NSString stringWithFormat:@"当前设置：%04d年%02d月%02d日", [dateComp year], [dateComp month], [dateComp day]];
+    
+    luckItem.bModified = YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

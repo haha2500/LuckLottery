@@ -16,18 +16,20 @@
 #define kLuckItemTypeCarNumber          40   // 车牌号
 #define kLuckItemTypeCST                100  // 彩神通关注码
 
-@interface QCLuckItem : NSObject
+@interface QCLuckItem : NSObject <NSCoding>
 {
     Byte btType;                // 类型，见宏定义，如：kLuckItemTypeCST
     NSString *strName;          // 名称
     NSString *strValue;         // 值文本串
     NSInteger nValue;           // 整型值，为负数则表示未设置
+    BOOL bModified;             // 设置是否已被修改
 }
 
-@property (readonly, nonatomic) Byte btType;
+@property (assign, nonatomic) Byte btType;
 @property (strong, nonatomic) NSString *strName;
 @property (strong, nonatomic) NSString *strValue;
 @property (assign, nonatomic) NSInteger nValue;
+@property (assign, nonatomic) BOOL bModified;
 
 + (id)luckItemWithType:(Byte)type andName:(NSString *)name;
 - (id)initWithType:(Byte)type andName:(NSString *)name;

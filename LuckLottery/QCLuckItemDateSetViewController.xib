@@ -110,7 +110,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<object class="IBUILabel" id="887877399">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">264</int>
-						<string key="NSFrame">{{5, 341}, {308, 28}}</string>
+						<string key="NSFrame">{{5, 374}, {308, 28}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -215,8 +215,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<array class="NSMutableArray" key="children">
 							<reference ref="567282098"/>
 							<reference ref="790249551"/>
-							<reference ref="887877399"/>
 							<reference ref="191799039"/>
+							<reference ref="887877399"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

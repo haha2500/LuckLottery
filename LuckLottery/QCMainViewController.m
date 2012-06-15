@@ -28,9 +28,11 @@
         _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
         
         // 获取设置
-        NSArray *array = [[NSUserDefaults standardUserDefaults] arrayForKey:@"LuckItems"];
-        if ([array count] > 0) // 直接使用设置中的值
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"LuckItems"];
+        
+        if (data != nil) // 直接使用设置中的值
         {
+            NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
             self.luckItemArray = [[NSMutableArray alloc] initWithArray:array];
         }
         else  // 初始化
@@ -70,6 +72,9 @@
     _dmAdView.rootViewController = self;    // 设置 RootViewController
     [self.view addSubview:_dmAdView];       // 将广告视图添加到父视图中
     [_dmAdView loadAd];                     // 开始加载广告
+   
+    // 启动数据下载
+    [self downloadData:nil];
 }
 
 - (void)viewDidUnload
@@ -77,6 +82,29 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     [_dmAdView removeFromSuperview]; // 将广告试图从父视图中移除
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    BOOL bHasModified = NO;
+    for (QCLuckItem *luckItem in luckItemArray)
+    {
+        if (luckItem.bModified) // 设置有改动
+        {
+            bHasModified = YES;
+            luckItem.bModified = NO;
+        }
+    }
+    
+    if (bHasModified)   // 设置有改动
+    {
+        // 保存列表数据
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:luckItemArray];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"LuckItems"];
+        
+        // 刷新列表
+        [self.tableView reloadData];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

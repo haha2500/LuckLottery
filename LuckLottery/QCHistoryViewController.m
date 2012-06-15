@@ -54,6 +54,11 @@
     [_dmAdView loadAd];                     // 开始加载广告
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[self tableView] reloadData];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

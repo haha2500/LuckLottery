@@ -59,6 +59,7 @@
     // 画号码球
     CGRect rectBall = rect;
     rectBall.size.width = rectBall.size.height;
+    rectBall.origin.x = 20;
     for (Byte i=0; i<_btCount; i++)
     {
         UIImage *imageBall = nil;
