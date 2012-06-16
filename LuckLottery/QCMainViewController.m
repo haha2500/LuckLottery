@@ -47,9 +47,9 @@
             QCLuckItem *luckItemCST = [QCLuckItem luckItemWithType:kLuckItemTypeCST andName:@"彩神通关注码"];
            
             // LOTTERY
-            [self.luckItemArray addObject:luckItemCST];
             [self.luckItemArray addObject:luckItemDate];
             [self.luckItemArray addObject:luckItemNumber];
+            [self.luckItemArray addObject:luckItemCST];
         }
     }
     
@@ -267,6 +267,7 @@
             [alert show];
         }
     }
+    [connection cancel];
     connection = nil;
     downloadData = nil;
     

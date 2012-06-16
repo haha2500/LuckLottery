@@ -176,12 +176,25 @@
     }
     
     srand(randseed);
-    srand(rand() + dataItem.issue);
+    srand(rand() + dataItem.nIssue);
     
     // 获取推荐值信息
+    Byte btFlags[100] = {0}, btRecmdValue = 0;
+    
     for (int i=0; i<nNumberCount; i++)
     {
-        recmdNumsOut[i] = rand() % 10;
+        btRecmdValue = rand() % 10;
+        
+        while(btFlags[btRecmdValue] == 1)
+        {
+            btRecmdValue ++;
+            if (btRecmdValue == 10)
+            {
+                btRecmdValue = 0;
+            }
+        }
+        recmdNumsOut[i] = btRecmdValue;
+        btFlags[btRecmdValue] = 1;
     }
     
     // 获取中出信息

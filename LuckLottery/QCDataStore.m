@@ -44,7 +44,18 @@ static QCDataStore *defaultStore = nil;
         strDataFilename = [documentsDirectory stringByAppendingPathComponent:@"FC3D"];
         
         // 装载数据文件
-        dataItemArray = [[NSMutableArray alloc] initWithContentsOfFile:strDataFilename];
+        NSData *data = [NSData dataWithContentsOfFile:strDataFilename];
+        if (data != nil)
+        {
+            dataItemArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            QCDataItem *lastDataItem = [dataItemArray lastObject];
+            // 增加预测期数据
+            dataItemForecast = [[QCDataItem alloc] init];
+            int nNextIssue = lastDataItem.nIssue;
+            int nNextDate = [self getNextDate:lastDataItem.nDate andIssue:&nNextIssue];
+            [dataItemForecast setNumbers:NULL withDate:nNextDate andIssue:nNextIssue];
+        }
+        
         if (dataItemArray == nil)
         {
             dataItemArray = [[NSMutableArray alloc] init];
@@ -52,7 +63,6 @@ static QCDataStore *defaultStore = nil;
         
         numberCount = 3;
         downloadDataItemLen = 21;   // 3D
-        
     }
     
     return self;
@@ -155,7 +165,8 @@ static QCDataStore *defaultStore = nil;
     }
     
     // 保存到数据文件
-    if([dataItemArray writeToFile:strDataFilename atomically:YES])
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dataItemArray];
+    if([data writeToFile:strDataFilename atomically:YES])
     {
         return 1;
     }
@@ -170,7 +181,7 @@ static QCDataStore *defaultStore = nil;
         return 2012100;
     }
     
-    return [dataItemForecast issue];
+    return [dataItemForecast nIssue];
 }
 
 #pragma mark -

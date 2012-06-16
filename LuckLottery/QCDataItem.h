@@ -17,9 +17,11 @@
     Byte  btTestRelatedNums[3];     // 试机号相关码（仅用于3D）
 }
 
+@property (assign, nonatomic) NSInteger nIssue;
+@property (assign, nonatomic) NSInteger nDate;
+
 - (void)setNumbers:(Byte *)numbers withDate:(NSInteger)date andIssue:(NSInteger)issue;
 - (void)set3DRecmdNums:(Byte *)recmdNums andTestRelatedNums:(Byte *)trNums;
-- (int)issue;
 - (Byte *)numbers;
 - (Byte *)RecmdNums;
 - (Byte *)TestRelatedNums;

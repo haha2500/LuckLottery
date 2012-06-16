@@ -10,6 +10,8 @@
 #import "QCDataStore.h"
 
 @implementation QCDataItem
+@synthesize nIssue, nDate;
+
 - (void)setNumbers:(Byte *)numbers withDate:(NSInteger)date andIssue:(NSInteger)issue
 {
     if (numbers == NULL)
@@ -29,11 +31,6 @@
 {
     memcpy(btRecmdNums, recmdNums, sizeof(btRecmdNums));
     memcpy(btTestRelatedNums, trNums, sizeof(btTestRelatedNums));
-}
-
-- (int)issue
-{
-    return nIssue;
 }
 
 - (Byte *)numbers
@@ -113,7 +110,7 @@
 
 - (BOOL)isEqual:(QCDataItem *)srcItem
 {
-    if (nIssue != srcItem.issue)
+    if (nIssue != srcItem.nIssue)
     {
         return NO;
     }
