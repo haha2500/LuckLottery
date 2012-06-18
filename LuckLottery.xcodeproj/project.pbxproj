@@ -15,19 +15,24 @@
 		EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */; };
 		EE21AED71585F90000D28D6F /* QCBallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE21AED61585F90000D28D6F /* QCBallImageView.m */; };
 		EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3ECF021588754F0094D9A0 /* ball_blue.png */; };
-		EE3ECF061588755D0094D9A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3ECF051588755D0094D9A0 /* Default.png */; };
 		EE417B301585C44C00B77E45 /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE417B2E1585C44C00B77E45 /* DomobAdSDKBundle.bundle */; };
 		EE417B311585C44C00B77E45 /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B2F1585C44C00B77E45 /* libDomobAdSDK.a */; };
 		EE417B341585C47800B77E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B331585C47800B77E45 /* CoreLocation.framework */; };
 		EE417B361585C48600B77E45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B351585C48600B77E45 /* SystemConfiguration.framework */; };
 		EE417B391585DC9200B77E45 /* ball_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B371585DC9200B77E45 /* ball_orange.png */; };
 		EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B381585DC9200B77E45 /* ball_red.png */; };
+		EE85E616158D7106008FED54 /* LuckLottery-3D_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E615158D7106008FED54 /* LuckLottery-3D_icon.png */; };
+		EE85E618158D710A008FED54 /* LuckLottery-3D_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */; };
+		EE85E61A158D710F008FED54 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E619158D710F008FED54 /* Default.png */; };
+		EE85E61C158D7113008FED54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E61B158D7113008FED54 /* Default@2x.png */; };
 		EEA790BF158AB62700A94A3E /* QCLuckItemNumSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA790BD158AB62700A94A3E /* QCLuckItemNumSetViewController.m */; };
 		EEA790C0158AB62700A94A3E /* QCLuckItemNumSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA790BE158AB62700A94A3E /* QCLuckItemNumSetViewController.xib */; };
 		EEA9B087158730D40054C1EB /* QCHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */; };
 		EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */; };
 		EEBC8AE7158776BC00E8B6A2 /* QCDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBC8AE6158776BC00E8B6A2 /* QCDataItem.m */; };
 		EEBC8AEB15877FDE00E8B6A2 /* QCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBC8AEA15877FDE00E8B6A2 /* QCDataStore.m */; };
+		EECBC5EF158F4F9A00B5D7C8 /* QCHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EECBC5ED158F4F9A00B5D7C8 /* QCHelpViewController.m */; };
+		EECBC5F0158F4F9A00B5D7C8 /* QCHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECBC5EE158F4F9A00B5D7C8 /* QCHelpViewController.xib */; };
 		EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF415834E96000CA104 /* UIKit.framework */; };
 		EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF615834E96000CA104 /* Foundation.framework */; };
 		EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EECF8CF815834E96000CA104 /* CoreGraphics.framework */; };
@@ -52,7 +57,6 @@
 		EE21AED51585F90000D28D6F /* QCBallImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCBallImageView.h; sourceTree = "<group>"; };
 		EE21AED61585F90000D28D6F /* QCBallImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCBallImageView.m; sourceTree = "<group>"; };
 		EE3ECF021588754F0094D9A0 /* ball_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_blue.png; sourceTree = "<group>"; };
-		EE3ECF051588755D0094D9A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		EE417B2A1585C44C00B77E45 /* DMAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAdView.h; sourceTree = "<group>"; };
 		EE417B2B1585C44C00B77E45 /* DMInterstitialAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMInterstitialAdController.h; sourceTree = "<group>"; };
 		EE417B2C1585C44C00B77E45 /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
@@ -62,6 +66,10 @@
 		EE417B351585C48600B77E45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EE417B371585DC9200B77E45 /* ball_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_orange.png; sourceTree = "<group>"; };
 		EE417B381585DC9200B77E45 /* ball_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_red.png; sourceTree = "<group>"; };
+		EE85E615158D7106008FED54 /* LuckLottery-3D_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LuckLottery-3D_icon.png"; sourceTree = SOURCE_ROOT; };
+		EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LuckLottery-3D_icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		EE85E619158D710F008FED54 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		EE85E61B158D7113008FED54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		EEA790BC158AB62700A94A3E /* QCLuckItemNumSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItemNumSetViewController.h; sourceTree = "<group>"; };
 		EEA790BD158AB62700A94A3E /* QCLuckItemNumSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItemNumSetViewController.m; sourceTree = "<group>"; };
 		EEA790BE158AB62700A94A3E /* QCLuckItemNumSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemNumSetViewController.xib; sourceTree = "<group>"; };
@@ -72,7 +80,10 @@
 		EEBC8AE6158776BC00E8B6A2 /* QCDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDataItem.m; sourceTree = "<group>"; };
 		EEBC8AE915877FDE00E8B6A2 /* QCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCDataStore.h; sourceTree = "<group>"; };
 		EEBC8AEA15877FDE00E8B6A2 /* QCDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDataStore.m; sourceTree = "<group>"; };
-		EECF8CF015834E96000CA104 /* LuckLottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckLottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EECBC5EC158F4F9A00B5D7C8 /* QCHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCHelpViewController.h; sourceTree = "<group>"; };
+		EECBC5ED158F4F9A00B5D7C8 /* QCHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCHelpViewController.m; sourceTree = "<group>"; };
+		EECBC5EE158F4F9A00B5D7C8 /* QCHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCHelpViewController.xib; sourceTree = "<group>"; };
+		EECF8CF015834E96000CA104 /* LuckLottery_3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckLottery_3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECF8CF415834E96000CA104 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EECF8CF615834E96000CA104 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EECF8CF815834E96000CA104 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,7 +150,7 @@
 		EECF8CF115834E96000CA104 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EECF8CF015834E96000CA104 /* LuckLottery.app */,
+				EECF8CF015834E96000CA104 /* LuckLottery_3D.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,6 +198,9 @@
 				EEBC8AE6158776BC00E8B6A2 /* QCDataItem.m */,
 				EEBC8AE915877FDE00E8B6A2 /* QCDataStore.h */,
 				EEBC8AEA15877FDE00E8B6A2 /* QCDataStore.m */,
+				EECBC5EC158F4F9A00B5D7C8 /* QCHelpViewController.h */,
+				EECBC5ED158F4F9A00B5D7C8 /* QCHelpViewController.m */,
+				EECBC5EE158F4F9A00B5D7C8 /* QCHelpViewController.xib */,
 				EECF8CFB15834E96000CA104 /* Supporting Files */,
 			);
 			path = LuckLottery;
@@ -195,7 +209,10 @@
 		EECF8CFB15834E96000CA104 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EE3ECF051588755D0094D9A0 /* Default.png */,
+				EE85E61B158D7113008FED54 /* Default@2x.png */,
+				EE85E619158D710F008FED54 /* Default.png */,
+				EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */,
+				EE85E615158D7106008FED54 /* LuckLottery-3D_icon.png */,
 				EE3ECF021588754F0094D9A0 /* ball_blue.png */,
 				EE417B371585DC9200B77E45 /* ball_orange.png */,
 				EE417B381585DC9200B77E45 /* ball_red.png */,
@@ -210,9 +227,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EECF8CEF15834E96000CA104 /* LuckLottery */ = {
+		EECF8CEF15834E96000CA104 /* LuckLottery_3D */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EECF8D0E15834E96000CA104 /* Build configuration list for PBXNativeTarget "LuckLottery" */;
+			buildConfigurationList = EECF8D0E15834E96000CA104 /* Build configuration list for PBXNativeTarget "LuckLottery_3D" */;
 			buildPhases = (
 				EECF8CEC15834E96000CA104 /* Sources */,
 				EECF8CED15834E96000CA104 /* Frameworks */,
@@ -222,9 +239,9 @@
 			);
 			dependencies = (
 			);
-			name = LuckLottery;
+			name = LuckLottery_3D;
 			productName = LuckLottery;
-			productReference = EECF8CF015834E96000CA104 /* LuckLottery.app */;
+			productReference = EECF8CF015834E96000CA104 /* LuckLottery_3D.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -248,7 +265,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EECF8CEF15834E96000CA104 /* LuckLottery */,
+				EECF8CEF15834E96000CA104 /* LuckLottery_3D */,
 			);
 		};
 /* End PBXProject section */
@@ -268,8 +285,12 @@
 				EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */,
 				EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */,
 				EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */,
-				EE3ECF061588755D0094D9A0 /* Default.png in Resources */,
 				EEA790C0158AB62700A94A3E /* QCLuckItemNumSetViewController.xib in Resources */,
+				EE85E616158D7106008FED54 /* LuckLottery-3D_icon.png in Resources */,
+				EE85E618158D710A008FED54 /* LuckLottery-3D_icon@2x.png in Resources */,
+				EE85E61A158D710F008FED54 /* Default.png in Resources */,
+				EE85E61C158D7113008FED54 /* Default@2x.png in Resources */,
+				EECBC5F0158F4F9A00B5D7C8 /* QCHelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +313,7 @@
 				EEBC8AE7158776BC00E8B6A2 /* QCDataItem.m in Sources */,
 				EEBC8AEB15877FDE00E8B6A2 /* QCDataStore.m in Sources */,
 				EEA790BF158AB62700A94A3E /* QCLuckItemNumSetViewController.m in Sources */,
+				EECBC5EF158F4F9A00B5D7C8 /* QCHelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +359,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -355,7 +377,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -368,6 +390,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuckLottery/LuckLottery-Prefix.pch";
 				INFOPLIST_FILE = "LuckLottery/LuckLottery-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/DomobAdSDK\"",
@@ -383,6 +406,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuckLottery/LuckLottery-Prefix.pch";
 				INFOPLIST_FILE = "LuckLottery/LuckLottery-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/DomobAdSDK\"",
@@ -404,7 +428,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EECF8D0E15834E96000CA104 /* Build configuration list for PBXNativeTarget "LuckLottery" */ = {
+		EECF8D0E15834E96000CA104 /* Build configuration list for PBXNativeTarget "LuckLottery_3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EECF8D0F15834E96000CA104 /* Debug */,

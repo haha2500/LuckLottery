@@ -9,6 +9,7 @@
 #import "QCMainViewController.h"
 #import "QCLuckItemTableViewCell.h"
 #import "QCHistoryViewController.h"
+#import "QCHelpViewController.h"
 #import "QCDataStore.h"
 
 @interface QCMainViewController ()
@@ -23,7 +24,7 @@
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
         // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID
-        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJyM1ouMGoULfJaL" size:DOMOB_AD_SIZE_320x50];
+        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:DOMOB_AD_SIZE_320x50];
         // 设置广告视图的位置
         _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
         
@@ -63,6 +64,7 @@
     // 设置导航栏按钮和标题
     //     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"说明" style:UIBarButtonItemStylePlain target:self action:@selector(helpInfo)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];
     
     self.navigationItem.title = @"福彩3D幸运码";   // LOTTERY
@@ -222,6 +224,12 @@
 }
 
 #pragma mark -
+- (void)helpInfo
+{
+    QCHelpViewController *helpVC = [[QCHelpViewController alloc] initWithNibName:@"QCHelpViewController" bundle:nil];
+    [[self navigationController] pushViewController:helpVC animated:YES];
+}
+
 - (void)downloadData:(id)sender
 {
     // 显示等待窗口
