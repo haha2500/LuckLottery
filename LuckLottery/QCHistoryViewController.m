@@ -104,7 +104,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 30 + (_bADLoadOK ? 1 : 0);
+    return 31 + (_bADLoadOK ? 1 : 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,37 +136,54 @@
             row --;
     }
     
-    NSArray *dataItems = [[QCDataStore defaultStore] dataItemArray];
-    int nIndex = [dataItems count] - row - 1;
-    QCDataItem *dataItem = [dataItems objectAtIndex:nIndex];
-    cell.lableIssue.text = [NSString stringWithFormat:@"%@  第%@期  试机号 %@", [dataItem dateString], [dataItem issueString], [dataItem testNumbersString]];
-    cell.lableNums.text = [NSString stringWithFormat:@"开奖号 %@", [dataItem numbersString]];
-    
     Byte btRecmdNums[8] = {0}, btNumberCount = [[QCDataStore defaultStore] numberCount];
     int nMatchCount = 0;
-    [luckItem getRecmdNums:btRecmdNums atIndex:nIndex matchCount:&nMatchCount];
-    [cell.imageBallView removeAllBalls];
-    for (int i=0; i<btNumberCount; i++)
+    
+    if (row == 0)   // 预测数据
     {
-        [cell.imageBallView addBall:(btRecmdNums[i] & 0x80 ? kBallTypeMatch : kBallTypeNormal) andValue:btRecmdNums[i] & 0x7f]; 
+        QCDataItem *dataItem = [[QCDataStore defaultStore] dataItemForecast];
+        
+        cell.lableIssue.text = [NSString stringWithFormat:@"%@  第%@期  试机号 %@", [dataItem dateString], [dataItem issueString], [dataItem testNumbersString]];
+        cell.lableNums.text = @"开奖号（无）";
+        if ([luckItem getRecmdNums:btRecmdNums atIndex:-1 matchCount:&nMatchCount] == 0)
+        {
+            nMatchCount = -2;
+        }
+        else
+        {
+            nMatchCount = -1;
+        }
+    }
+    else    // 历史数据
+    {
+        NSArray *dataItems = [[QCDataStore defaultStore] dataItemArray];
+        int nIndex = [dataItems count] - row;
+        QCDataItem *dataItem = [dataItems objectAtIndex:nIndex];
+        
+        cell.lableIssue.text = [NSString stringWithFormat:@"%@  第%@期  试机号 %@", [dataItem dateString], [dataItem issueString], [dataItem testNumbersString]];
+        cell.lableNums.text = [NSString stringWithFormat:@"开奖号 %@", [dataItem numbersString]];
+        
+        [luckItem getRecmdNums:btRecmdNums atIndex:nIndex matchCount:&nMatchCount];
+    }
+        
+    if(nMatchCount == -2) // 没有推荐码
+    {
+        [cell.imageBallView setShowText:@"（暂无关注码）"];
+    }
+    else
+    {
+        [cell.imageBallView removeAllBalls];
+        for (int i=0; i<btNumberCount; i++)
+        {
+            [cell.imageBallView addBall:(btRecmdNums[i] & 0x80 ? kBallTypeMatch : kBallTypeNormal) andValue:btRecmdNums[i] & 0x7f]; 
+        }
     }
     [cell setMatchCount:nMatchCount];
-    
+
     return (UITableViewCell *)cell;
 }
 
 #pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 #pragma mark - 
 - (void)modifyLuckItem:(id)sender

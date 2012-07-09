@@ -10,10 +10,14 @@
 #import "DMAdView.h"
 #import "QCLuckItem.h"
 
+#define kLoadADNeedFirstLoad        1           // 第一次加载广告
+#define kLoadADLoadSuccess          2           // 加载广告成功
+#define kLoadADLoadFailure          3           // 加载广告失败
+
 @interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DMAdViewDelegate>
 {
     DMAdView *_dmAdView;
-    BOOL _bADLoadOK;
+    Byte _btLoadADFlag;
     NSURLConnection *connection;
     NSMutableData *downloadData;
     UIAlertView *waitingDialog;

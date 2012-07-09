@@ -32,6 +32,15 @@
 
 - (void)setMatchCount:(int)nCount
 {
+    if (nCount < 0)
+    {
+        lableMatchCount.text = @"未开奖";
+        lableMatchCount.textColor = [UIColor redColor];
+        self.backgroundColor = [UIColor greenColor];
+
+        return;
+    }
+    
     lableMatchCount.text = [NSString stringWithFormat:@"中 %d 个", nCount];
     
     switch (nCount)
@@ -46,7 +55,7 @@
             lableMatchCount.textColor = [UIColor blueColor];
             break;
         case 3:
-            lableMatchCount.textColor = [UIColor redColor];
+            lableMatchCount.textColor = [UIColor magentaColor];
             break;    
         default:
             lableMatchCount.textColor = [UIColor orangeColor];

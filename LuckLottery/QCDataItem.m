@@ -78,7 +78,7 @@
 {
     if (btNumbers[3] == 0xff)
     {
-        return nil;
+        return @"（未发布）";
     }
     
     return [NSString stringWithFormat:@"%d%d%d", btNumbers[3], btNumbers[4], btNumbers[5]];

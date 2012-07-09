@@ -129,22 +129,37 @@ static QCDataStore *defaultStore = nil;
         }
         [newItem set3DRecmdNums:btRecmdNums andTestRelatedNums:btTestRelatedNums];
         
-        if (bHasOnlyTestNums)
+        if (nCount == 1)        // 下载数据中只包含一期数据，则需要比较
         {
-            if (i == 0)
+            if (bHasOnlyTestNums)   // 只有试机号的一期
             {
                 if ([dataItemForecast isEqual:newItem])
                 {
-                    return 0;
+                    return 0;   // 认为没有新数据
                 }
             }
+            else // 普通
+            {
+                if ([[dataItemArray lastObject] isEqual:newItem])
+                {
+                    return 0;   // 认为没有新数据
+                }
+            }
+        }
+        
+        if (bHasOnlyTestNums)   // 只有试机号的一期
+        {
             dataItemForecast = newItem;
         }
         else
         {
             if (i == 0)
             {
-                [dataItemArray removeLastObject];   // 删除最后一个数据，因为这个每次都会更新
+                QCDataItem *lastitem = [dataItemArray lastObject];
+                if (lastitem != nil && lastitem.nIssue == nIssue)
+                {
+                    [dataItemArray removeLastObject];   // 删除最后一个数据
+                }
             }
             [dataItemArray addObject:newItem];
         }
@@ -176,12 +191,19 @@ static QCDataStore *defaultStore = nil;
 
 - (int)lastIssue
 {
-    if (dataItemForecast == nil)
+    if ([dataItemArray count] == 0)
     {
         return 2012100;
     }
     
-    return [dataItemForecast nIssue];
+    if (dataItemForecast != nil)
+    {
+        if ([dataItemForecast numbers][3] != 0XFF)  // 只含试机号的一期
+        {
+            return [dataItemForecast nIssue];
+        }
+    }
+    return [[dataItemArray lastObject] nIssue];
 }
 
 #pragma mark -

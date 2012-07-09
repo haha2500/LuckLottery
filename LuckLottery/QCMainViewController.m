@@ -27,6 +27,7 @@
         _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:DOMOB_AD_SIZE_320x50];
         // 设置广告视图的位置
         _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+        _btLoadADFlag = kLoadADNeedFirstLoad;
         
         // 获取设置
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"LuckItems"];
@@ -69,14 +70,12 @@
     
     self.navigationItem.title = @"福彩3D幸运码";   // LOTTERY
     
-    _bADLoadOK = NO;
-    _dmAdView.delegate = self;              // 设置 Delegate
-    _dmAdView.rootViewController = self;    // 设置 RootViewController
-    [self.view addSubview:_dmAdView];       // 将广告视图添加到父视图中
-    [_dmAdView loadAd];                     // 开始加载广告
+    _btLoadADFlag = kLoadADNeedFirstLoad;
    
-    // 启动数据下载
-    [self downloadData:nil];
+    [self firstLoadAD];     // 首次加载广告
+    
+    // 启动数据下载,APP审核不过
+ //   [self downloadData:nil];
 }
 
 - (void)viewDidUnload
@@ -107,6 +106,8 @@
         // 刷新列表
         [self.tableView reloadData];
     }
+    
+    [self firstLoadAD];     // 首次加载广告
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -124,15 +125,21 @@
 // 成功加载广告后，回调该方法
 - (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView
 {
-    _bADLoadOK = YES;
+    _btLoadADFlag = kLoadADLoadSuccess;
+    [self.view addSubview:_dmAdView];       // 将广告视图添加到父视图中
     [self.tableView reloadData];
 }
 
 // 加载广告失败后，回调该方法
 - (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error
 {
-    _bADLoadOK = NO;
-    [_dmAdView loadAd]; // 重新加载
+    if (_btLoadADFlag == kLoadADNeedFirstLoad)
+    {
+        return; 
+    }
+    _btLoadADFlag = kLoadADLoadFailure;
+    [_dmAdView removeFromSuperview]; // 将广告试图从父视图中移除
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate and UITableViewDataSource Method
@@ -192,7 +199,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 60 + (_bADLoadOK ? 50 : 0);
+   // return 60 + (_bADLoadOK ? 50 : 0);
+    return 60 + (_btLoadADFlag == kLoadADLoadSuccess ? _dmAdView.bounds.size.height : 0);
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -244,7 +252,7 @@
     NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
     NSURL *url = [NSURL URLWithString:strURL];
     bPromptNoNewData = (sender == nil) ? NO : YES;
-    NSURLRequest *requset = [NSURLRequest requestWithURL:url];
+    NSURLRequest *requset = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     downloadData = [[NSMutableData alloc] init];
     
     connection = [[NSURLConnection alloc] initWithRequest:requset delegate:self startImmediately:YES];
@@ -257,6 +265,10 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)conn
 {
+    // 关闭等待窗口
+    [waitingDialog dismissWithClickedButtonIndex:0 animated:NO];
+    waitingDialog = nil;
+
     int nBufLen = [downloadData length];
     char *lpBuf = (char *)[downloadData bytes];
     
@@ -279,9 +291,7 @@
     connection = nil;
     downloadData = nil;
     
-    // 关闭等待窗口
-    [waitingDialog dismissWithClickedButtonIndex:0 animated:NO];
-    waitingDialog = nil;
+    [self firstLoadAD];     // 首次加载广告
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
@@ -295,5 +305,18 @@
     NSString *errorString = [NSString stringWithFormat:@"下载数据失败：%@", [error localizedDescription]];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" message:errorString delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
     [alert show];
+    
+    [self firstLoadAD];     // 首次加载广告
+}
+
+#pragma mark - 
+- (void)firstLoadAD
+{
+    if (_btLoadADFlag == kLoadADNeedFirstLoad)  // 第一次加载广告
+    {
+        _dmAdView.delegate = self;              // 设置 Delegate
+        _dmAdView.rootViewController = self;    // 设置 RootViewController
+        [_dmAdView loadAd];                     // 开始加载广告
+    }
 }
 @end
