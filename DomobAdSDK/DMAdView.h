@@ -12,7 +12,7 @@
 #define DOMOB_AD_SIZE_300x250   CGSizeMake(300, 250)
 
 // For iPad
-#define DOMOB_AD_SIZE_448x80    CGSizeMake(488, 80)
+#define DOMOB_AD_SIZE_488x80    CGSizeMake(488, 80)
 #define DOMOB_AD_SIZE_728x90    CGSizeMake(728, 90)
 #define DOMOB_AD_SIZE_600x500   CGSizeMake(600, 500)
 

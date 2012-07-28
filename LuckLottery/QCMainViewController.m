@@ -17,17 +17,23 @@
 @end
 
 @implementation QCMainViewController
-@synthesize luckItemArray;
+@synthesize luckItemArray, historyVCForIPad;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
-        // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID
-        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:DOMOB_AD_SIZE_320x50];
-        // 设置广告视图的位置
-        _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
-        _btLoadADFlag = kLoadADNeedFirstLoad;
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
+        {
+        }
+        else
+        {
+            // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID
+            _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:DOMOB_AD_SIZE_320x50];
+            // 设置广告视图的位置
+            _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+            _btLoadADFlag = kLoadADNeedFirstLoad;
+        }
         
         // 获取设置
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"LuckItems"];
@@ -112,6 +118,11 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
+    {
+        return YES;
+    }
+    
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -125,6 +136,7 @@
 // 成功加载广告后，回调该方法
 - (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView
 {
+    NSLog(@"[MainViewController] success to load ad.");
     _btLoadADFlag = kLoadADLoadSuccess;
     [self.view addSubview:_dmAdView];       // 将广告视图添加到父视图中
     [self.tableView reloadData];
@@ -133,6 +145,7 @@
 // 加载广告失败后，回调该方法
 - (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error
 {
+    NSLog(@"[MainViewController] fail to load ad. %@", error);
     if (_btLoadADFlag == kLoadADNeedFirstLoad)
     {
         return; 
@@ -186,9 +199,9 @@
     }
     
     int nIndex = [indexPath row];
+    
     QCLuckItem *luckItem = [self.luckItemArray objectAtIndex:nIndex];
     [cell setLuckItem:luckItem];
-
     return (UITableViewCell *)cell;
 }
 
@@ -220,10 +233,18 @@
     // Navigation logic may go here. Create and push another view controller.
     if ([[[QCDataStore defaultStore] dataItemArray] count] > 0)
     {
-        QCHistoryViewController *detailViewController = [[QCHistoryViewController alloc] initWithNibName:@"QCHistoryViewController" bundle:nil];
-        detailViewController.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
-        // Pass the selected object to the new view controller.
-        [self.navigationController pushViewController:detailViewController animated:YES];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            self.historyVCForIPad.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
+            [self.historyVCForIPad resetLuckItemForIPad];
+        }
+        else
+        {
+            QCHistoryViewController *detailViewController = [[QCHistoryViewController alloc] initWithNibName:@"QCHistoryViewController" bundle:nil];
+            detailViewController.luckItem = [self.luckItemArray objectAtIndex:[indexPath row]];
+            // Pass the selected object to the new view controller.
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
     }
     else
     {
@@ -312,6 +333,11 @@
 #pragma mark - 
 - (void)firstLoadAD
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        return ;    // IPAD则不加载广告
+    }
+    
     if (_btLoadADFlag == kLoadADNeedFirstLoad)  // 第一次加载广告
     {
         _dmAdView.delegate = self;              // 设置 Delegate

@@ -11,22 +11,27 @@
 #import "QCDataStore.h"
 #import "QCLuckItemDateSetViewController.h"
 #import "QCLuckItemNumSetViewController.h"
+#import "QCMainViewController.h"
 
 @interface QCHistoryViewController ()
 
 @end
 
 @implementation QCHistoryViewController
-@synthesize luckItem;
+@synthesize luckItem, mainVCForIPad;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if (self == [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
-        // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID
-        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:DOMOB_AD_SIZE_320x50];
+        CGSize sizeAD = /*([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ?DOMOB_AD_SIZE_728x90 : */DOMOB_AD_SIZE_320x50;
+        
+        // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID，测试ID：56OJyM1ouMGoULfJaL
+        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJyM1ouMGoULfJaL" size:sizeAD]; // TEST 测试ID
+        // _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:sizeAD]; // 正式ID
         // 设置广告视图的位置
-        _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+        int nXOffset = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 200 : 0;
+        _dmAdView.frame = CGRectMake(nXOffset, 0, sizeAD.width, sizeAD.height);
     }
     
     return self;
@@ -39,7 +44,7 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
-     // 设置导航栏按钮和标题
+    // 设置导航栏按钮和标题
     if (luckItem.btType < kLuckItemTypeCST)
     {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(modifyLuckItem:)];
@@ -69,6 +74,11 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
+    {
+        return YES;
+    }
+    
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -78,10 +88,27 @@
     _dmAdView.rootViewController = nil;
 }
 
+- (void)resetLuckItemForIPad
+{
+    // 设置导航栏按钮和标题
+    if (luckItem.btType < kLuckItemTypeCST)
+    {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(modifyLuckItem:)];
+    }
+    else
+    {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    self.navigationItem.title = self.luckItem.strName;
+    [[self tableView] reloadData];
+}
+
 #pragma mark - DMAdViewDelegate Method
 // 成功加载广告后，回调该方法
 - (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView
 {
+    NSLog(@"[HistoryViewController] success to load ad.");
     _bADLoadOK = YES;
     [self.tableView reloadData];  
 }
@@ -89,6 +116,7 @@
 // 加载广告失败后，回调该方法
 - (void)dmAdViewFailToLoadAd:(DMAdView *)adView withError:(NSError *)error
 {
+    NSLog(@"[HistoryViewController] fail to load ad. %@", error);
     _bADLoadOK = NO;
     [_dmAdView loadAd]; // 重新加载
 }
@@ -104,7 +132,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 31 + (_bADLoadOK ? 1 : 0);
+    NSArray *dataItems = [[QCDataStore defaultStore] dataItemArray];
+    return (([dataItems count] > 0) ? 31 : 0) + (_bADLoadOK ? 1 : 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,7 +147,8 @@
     QCHistoryTableViewCell *cell = (QCHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        UIViewController *vc = [[UIViewController alloc] initWithNibName:@"QCHistoryTableViewCell" bundle:nil];
+        NSString *nibName = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? @"QCHistoryTableViewCell_IPad" : @"QCHistoryTableViewCell";
+        UIViewController *vc = [[UIViewController alloc] initWithNibName:nibName bundle:nil];
         
         cell = (QCHistoryTableViewCell *)vc.view;
     }
@@ -188,26 +218,66 @@
 #pragma mark - 
 - (void)modifyLuckItem:(id)sender
 {
+    UIViewController *subVC = nil;
+    
     switch (luckItem.btType)
     {
         case kLuckItemTypeDate:
         {
             QCLuckItemDateSetViewController *dateSetVC = [[QCLuckItemDateSetViewController alloc] initWithNibName:@"QCLuckItemDateSetViewController" bundle:nil];
             dateSetVC.luckItem = luckItem;
-            [self.navigationController pushViewController:dateSetVC animated:YES];
+            subVC = dateSetVC;
         }
         break;
         case kLuckItemTypeNumber:
         {
             QCLuckItemNumSetViewController *numSetVC = [[QCLuckItemNumSetViewController alloc] initWithNibName:@"QCLuckItemNumSetViewController" bundle:nil];
             numSetVC.luckItem = luckItem;
-            [self.navigationController pushViewController:numSetVC animated:YES];
-        }
+            subVC = numSetVC;
+         }
         break;
             
         default:
             assert(NO);
+            return;
             break;
     } 
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        popovercontorllerForIPad = [[UIPopoverController alloc] initWithContentViewController:subVC];
+        [popovercontorllerForIPad setPopoverContentSize:subVC.view.frame.size];
+        [popovercontorllerForIPad setDelegate:self];
+        [popovercontorllerForIPad presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else
+    {
+        [self.navigationController pushViewController:subVC animated:YES];
+    }
 }
+
+#pragma mark - UISplitViewControllerDelegate Method
+
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+{
+   // barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStylePlain target:self action:@selector(test)];
+    [barButtonItem setTitle:@"幸运码"];
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+}
+
+- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)button
+{
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+}
+
+#pragma mark -- UIPopoverControllerDelegate相关函数
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    [[self tableView] reloadData];
+    NSIndexPath *pOldPath = [self.mainVCForIPad.tableView indexPathForSelectedRow];
+    [self.mainVCForIPad.tableView reloadData];
+    [self.mainVCForIPad.tableView selectRowAtIndexPath:pOldPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    
+}
+
 @end

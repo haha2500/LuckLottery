@@ -39,6 +39,11 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
+    {
+        return YES;
+    }
+    
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 

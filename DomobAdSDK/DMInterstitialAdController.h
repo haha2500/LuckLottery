@@ -10,17 +10,17 @@
 @protocol DMInterstitialAdControllerDelegate;
 @interface DMInterstitialAdController : UIViewController
 
-@property (nonatomic, assign) NSObject<DMInterstitialAdControllerDelegate> *delegate; 
 @property (nonatomic, readonly) BOOL isReady;
+@property (nonatomic, assign) NSObject<DMInterstitialAdControllerDelegate> *delegate; 
 
 // 初始化一个插屏广告控制器，默认尺寸为全屏
-- (id)initWithPublisherId:(NSString *)publisherId
-       rootViewController:(UIViewController *)rootViewController;
+- (id)initWithPublisherId:(NSString *)publisherId                   // Domob PublisherId
+       rootViewController:(UIViewController *)rootViewController;   // 插屏广告使用的RootViewController
 
 // 初始化一个插屏广告控制器，使用开发者指定的尺寸
-- (id)initWithPublisherId:(NSString *)publisherId
-       rootViewController:(UIViewController *)rootViewController
-                     size:(CGSize)adSize;
+- (id)initWithPublisherId:(NSString *)publisherId                   // Domob PublisherId
+       rootViewController:(UIViewController *)rootViewController    // 插屏广告使用的RootViewController
+                     size:(CGSize)adSize;                           // 插屏广告的广告尺寸（默认为全屏）
 
 // 加载广告
 - (void)loadAd;
@@ -46,7 +46,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@protocol DMInterstitialAdControllerDelegate <DMAdViewDelegate>
+@protocol DMInterstitialAdControllerDelegate
 @optional
 // 当插屏广告被成功加载后，回调该方法
 - (void)dmInterstitialSuccessToLoadAd:(DMInterstitialAdController *)dmInterstitial;

@@ -9,20 +9,40 @@
 #import "QCAppDelegate.h"
 
 #import "QCMainViewController.h"
+#import "QCHistoryViewController.h"
 
 @implementation QCAppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[QCMainViewController alloc] initWithNibName:@"QCMainViewController" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:self.viewController];
+    QCMainViewController *mainVC = [[QCMainViewController alloc] initWithNibName:@"QCMainViewController" bundle:nil];
+    UINavigationController *nvcMain = [[UINavigationController alloc]initWithRootViewController:mainVC];
     
-    self.window.rootViewController = navController;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
+    {
+        QCHistoryViewController *detailVC = [[QCHistoryViewController alloc] initWithNibName:@"QCHistoryViewController" bundle:nil];
+        UINavigationController *nvcDetail = [[UINavigationController alloc]initWithRootViewController:detailVC];
+        mainVC.historyVCForIPad = detailVC;
+        
+        [[mainVC tableView] selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        mainVC.historyVCForIPad.luckItem = [mainVC.luckItemArray objectAtIndex:0];
+        [mainVC.historyVCForIPad resetLuckItemForIPad];
+        
+        detailVC.mainVCForIPad = mainVC;
+        
+        UISplitViewController *splitVC = [[UISplitViewController alloc] init];
+        [splitVC setViewControllers:[NSArray arrayWithObjects:nvcMain, nvcDetail, nil]];
+        splitVC.delegate = detailVC;
+        self.window.rootViewController = splitVC;
+    }
+    else 
+    {
+        self.window.rootViewController = nvcMain;
+    }
     
     [self.window makeKeyAndVisible];
     return YES;

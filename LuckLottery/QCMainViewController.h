@@ -14,6 +14,8 @@
 #define kLoadADLoadSuccess          2           // 加载广告成功
 #define kLoadADLoadFailure          3           // 加载广告失败
 
+@class QCHistoryViewController;
+
 @interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DMAdViewDelegate>
 {
     DMAdView *_dmAdView;
@@ -25,4 +27,5 @@
 }
 
 @property (strong, nonatomic) NSMutableArray *luckItemArray;
+@property (assign, nonatomic) QCHistoryViewController *historyVCForIPad;
 @end

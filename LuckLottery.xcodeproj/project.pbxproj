@@ -15,8 +15,6 @@
 		EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */; };
 		EE21AED71585F90000D28D6F /* QCBallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE21AED61585F90000D28D6F /* QCBallImageView.m */; };
 		EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3ECF021588754F0094D9A0 /* ball_blue.png */; };
-		EE417B301585C44C00B77E45 /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE417B2E1585C44C00B77E45 /* DomobAdSDKBundle.bundle */; };
-		EE417B311585C44C00B77E45 /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B2F1585C44C00B77E45 /* libDomobAdSDK.a */; };
 		EE417B341585C47800B77E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B331585C47800B77E45 /* CoreLocation.framework */; };
 		EE417B361585C48600B77E45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B351585C48600B77E45 /* SystemConfiguration.framework */; };
 		EE417B391585DC9200B77E45 /* ball_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B371585DC9200B77E45 /* ball_orange.png */; };
@@ -42,6 +40,9 @@
 		EECF8D0815834E96000CA104 /* QCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D0715834E96000CA104 /* QCMainViewController.m */; };
 		EECF8D0B15834E96000CA104 /* QCMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECF8D0915834E96000CA104 /* QCMainViewController.xib */; };
 		EECF8D1515836A8E000CA104 /* QCLuckItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF8D1415836A8E000CA104 /* QCLuckItem.m */; };
+		EEEAF75B15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAF75A15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib */; };
+		EEEAF77815C4252C000F192D /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEEAF77615C4252C000F192D /* DomobAdSDKBundle.bundle */; };
+		EEEAF77915C4252C000F192D /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEAF77715C4252C000F192D /* libDomobAdSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,11 +58,6 @@
 		EE21AED51585F90000D28D6F /* QCBallImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCBallImageView.h; sourceTree = "<group>"; };
 		EE21AED61585F90000D28D6F /* QCBallImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCBallImageView.m; sourceTree = "<group>"; };
 		EE3ECF021588754F0094D9A0 /* ball_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_blue.png; sourceTree = "<group>"; };
-		EE417B2A1585C44C00B77E45 /* DMAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAdView.h; sourceTree = "<group>"; };
-		EE417B2B1585C44C00B77E45 /* DMInterstitialAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMInterstitialAdController.h; sourceTree = "<group>"; };
-		EE417B2C1585C44C00B77E45 /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
-		EE417B2E1585C44C00B77E45 /* DomobAdSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobAdSDKBundle.bundle; sourceTree = "<group>"; };
-		EE417B2F1585C44C00B77E45 /* libDomobAdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomobAdSDK.a; sourceTree = "<group>"; };
 		EE417B331585C47800B77E45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EE417B351585C48600B77E45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EE417B371585DC9200B77E45 /* ball_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_orange.png; sourceTree = "<group>"; };
@@ -98,6 +94,13 @@
 		EECF8D121583526B000CA104 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "/Users/sunwu/work/LuckLottery/LuckLottery/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		EECF8D1315836A8E000CA104 /* QCLuckItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItem.h; sourceTree = "<group>"; };
 		EECF8D1415836A8E000CA104 /* QCLuckItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItem.m; sourceTree = "<group>"; };
+		EEEAF75A15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCHistoryTableViewCell_IPad.xib; sourceTree = "<group>"; };
+		EEEAF77115C4252C000F192D /* DMAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAdView.h; sourceTree = "<group>"; };
+		EEEAF77215C4252C000F192D /* DMInterstitialAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMInterstitialAdController.h; sourceTree = "<group>"; };
+		EEEAF77315C4252C000F192D /* DMSplashAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSplashAdController.h; sourceTree = "<group>"; };
+		EEEAF77415C4252C000F192D /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
+		EEEAF77615C4252C000F192D /* DomobAdSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobAdSDKBundle.bundle; sourceTree = "<group>"; };
+		EEEAF77715C4252C000F192D /* libDomobAdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomobAdSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,38 +113,18 @@
 				EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */,
 				EECF8CF715834E96000CA104 /* Foundation.framework in Frameworks */,
 				EECF8CF915834E96000CA104 /* CoreGraphics.framework in Frameworks */,
-				EE417B311585C44C00B77E45 /* libDomobAdSDK.a in Frameworks */,
+				EEEAF77915C4252C000F192D /* libDomobAdSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EE417B291585C44C00B77E45 /* DomobAdSDK */ = {
-			isa = PBXGroup;
-			children = (
-				EE417B2A1585C44C00B77E45 /* DMAdView.h */,
-				EE417B2B1585C44C00B77E45 /* DMInterstitialAdController.h */,
-				EE417B2C1585C44C00B77E45 /* DMTools.h */,
-				EE417B2D1585C44C00B77E45 /* DomobAdSDKBundle */,
-				EE417B2F1585C44C00B77E45 /* libDomobAdSDK.a */,
-			);
-			path = DomobAdSDK;
-			sourceTree = "<group>";
-		};
-		EE417B2D1585C44C00B77E45 /* DomobAdSDKBundle */ = {
-			isa = PBXGroup;
-			children = (
-				EE417B2E1585C44C00B77E45 /* DomobAdSDKBundle.bundle */,
-			);
-			path = DomobAdSDKBundle;
-			sourceTree = "<group>";
-		};
 		EECF8CE515834E96000CA104 = {
 			isa = PBXGroup;
 			children = (
+				EEEAF77015C4252C000F192D /* DomobAdSDK */,
 				EECF8CFA15834E96000CA104 /* LuckLottery */,
-				EE417B291585C44C00B77E45 /* DomobAdSDK */,
 				EECF8CF315834E96000CA104 /* Frameworks */,
 				EECF8CF115834E96000CA104 /* Products */,
 			);
@@ -181,6 +164,7 @@
 				EEA9B085158730D40054C1EB /* QCHistoryTableViewCell.h */,
 				EEA9B086158730D40054C1EB /* QCHistoryTableViewCell.m */,
 				EEA9B089158730FB0054C1EB /* QCHistoryTableViewCell.xib */,
+				EEEAF75A15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib */,
 				EE0C166C158386F800B879A6 /* QCLuckItemTableViewCell.h */,
 				EE0C166D158386F800B879A6 /* QCLuckItemTableViewCell.m */,
 				EE0C16701583872700B879A6 /* QCLuckItemTableViewCell.xib */,
@@ -222,6 +206,27 @@
 				EECF8D0215834E96000CA104 /* LuckLottery-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEEAF77015C4252C000F192D /* DomobAdSDK */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAF77115C4252C000F192D /* DMAdView.h */,
+				EEEAF77215C4252C000F192D /* DMInterstitialAdController.h */,
+				EEEAF77315C4252C000F192D /* DMSplashAdController.h */,
+				EEEAF77415C4252C000F192D /* DMTools.h */,
+				EEEAF77515C4252C000F192D /* DomobAdSDKBundle */,
+				EEEAF77715C4252C000F192D /* libDomobAdSDK.a */,
+			);
+			path = DomobAdSDK;
+			sourceTree = "<group>";
+		};
+		EEEAF77515C4252C000F192D /* DomobAdSDKBundle */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAF77615C4252C000F192D /* DomobAdSDKBundle.bundle */,
+			);
+			path = DomobAdSDKBundle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +285,6 @@
 				EE0C16711583872700B879A6 /* QCLuckItemTableViewCell.xib in Resources */,
 				EE0C167A158565FA00B879A6 /* QCHistoryViewController.xib in Resources */,
 				EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */,
-				EE417B301585C44C00B77E45 /* DomobAdSDKBundle.bundle in Resources */,
 				EE417B391585DC9200B77E45 /* ball_orange.png in Resources */,
 				EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */,
 				EEA9B08A158730FB0054C1EB /* QCHistoryTableViewCell.xib in Resources */,
@@ -291,6 +295,8 @@
 				EE85E61A158D710F008FED54 /* Default.png in Resources */,
 				EE85E61C158D7113008FED54 /* Default@2x.png in Resources */,
 				EECBC5F0158F4F9A00B5D7C8 /* QCHelpViewController.xib in Resources */,
+				EEEAF75B15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib in Resources */,
+				EEEAF77815C4252C000F192D /* DomobAdSDKBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +405,7 @@
 					"\"$(SRCROOT)/DomobAdSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -415,6 +422,7 @@
 					"\"$(SRCROOT)/DomobAdSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
