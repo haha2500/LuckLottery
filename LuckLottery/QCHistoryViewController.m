@@ -27,8 +27,8 @@
         CGSize sizeAD = /*([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ?DOMOB_AD_SIZE_728x90 : */DOMOB_AD_SIZE_320x50;
         
         // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID，测试ID：56OJyM1ouMGoULfJaL
-        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJyM1ouMGoULfJaL" size:sizeAD]; // TEST 测试ID
-        // _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:sizeAD]; // 正式ID
+        // _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJyM1ouMGoULfJaL" size:sizeAD]; // TEST 测试ID
+        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:sizeAD]; // 正式ID
         // 设置广告视图的位置
         int nXOffset = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 200 : 0;
         _dmAdView.frame = CGRectMake(nXOffset, 0, sizeAD.width, sizeAD.height);
@@ -133,7 +133,7 @@
 {
     // Return the number of rows in the section.
     NSArray *dataItems = [[QCDataStore defaultStore] dataItemArray];
-    return (([dataItems count] > 0) ? 31 : 0) + (_bADLoadOK ? 1 : 0);
+    return (([dataItems count] > 0) ? 31 : 1) + (_bADLoadOK ? 1 : 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,6 +143,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([[[QCDataStore defaultStore] dataItemArray] count] == 0)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nodatacell"];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"nodatacell"];
+        }
+        cell.textLabel.text = @"请点击上面的“刷新”按钮获取最新数据";
+        return cell;
+    }
+    
     static NSString *CellIdentifier = @"HistoryTableViewCell";
     QCHistoryTableViewCell *cell = (QCHistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
@@ -245,10 +256,14 @@
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
-        popovercontorllerForIPad = [[UIPopoverController alloc] initWithContentViewController:subVC];
-        [popovercontorllerForIPad setPopoverContentSize:subVC.view.frame.size];
-        [popovercontorllerForIPad setDelegate:self];
-        [popovercontorllerForIPad presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        if (popoverControllerForIPad != nil)
+        {
+            return ;
+        }
+        popoverControllerForIPad = [[UIPopoverController alloc] initWithContentViewController:subVC];
+        [popoverControllerForIPad setPopoverContentSize:subVC.view.frame.size];
+        [popoverControllerForIPad setDelegate:self];
+        [popoverControllerForIPad presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else
     {
@@ -260,24 +275,45 @@
 
 - (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
 {
-   // barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStylePlain target:self action:@selector(test)];
-    [barButtonItem setTitle:@"幸运码"];
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    [barButtonItem setTitle:@"福彩3D幸运码"];
+    UIBarButtonItem *bbiDownload = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData)];
+    
+    [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:barButtonItem, bbiDownload, nil] animated:YES];
 }
 
 - (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)button
 {
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    [self.navigationItem setLeftBarButtonItems:nil animated:YES];
+}
+
+- (void)splitViewController:(UISplitViewController *)svc popoverController:(UIPopoverController *)pc willPresentViewController:(UIViewController *)aViewController
+{
+    if (popoverControllerForIPad != nil)
+    {
+        [popoverControllerForIPad dismissPopoverAnimated:YES];
+        popoverControllerForIPad = nil;
+    }
 }
 
 #pragma mark -- UIPopoverControllerDelegate相关函数
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    [[self tableView] reloadData];
+   [[self tableView] reloadData];
     NSIndexPath *pOldPath = [self.mainVCForIPad.tableView indexPathForSelectedRow];
     [self.mainVCForIPad.tableView reloadData];
     [self.mainVCForIPad.tableView selectRowAtIndexPath:pOldPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-    
+    popoverControllerForIPad = nil;
 }
 
+#pragma mark -
+- (void)downloadData
+{
+    if (popoverControllerForIPad != nil)
+    {
+        [popoverControllerForIPad dismissPopoverAnimated:YES];
+        popoverControllerForIPad = nil;
+    }
+    UIBarButtonItem *bbi = [[self.navigationItem leftBarButtonItems] lastObject];
+    [mainVCForIPad downloadData:bbi];
+}
 @end

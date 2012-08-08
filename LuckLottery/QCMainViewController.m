@@ -25,6 +25,7 @@
     {
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
         {
+            popoverControllerForIPad = nil;
         }
         else
         {
@@ -256,11 +257,31 @@
 - (void)helpInfo
 {
     QCHelpViewController *helpVC = [[QCHelpViewController alloc] initWithNibName:@"QCHelpViewController" bundle:nil];
-    [[self navigationController] pushViewController:helpVC animated:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        if (popoverControllerForIPad != nil)
+        {
+            return;
+        }
+        popoverControllerForIPad = [[UIPopoverController alloc] initWithContentViewController:helpVC];
+        [popoverControllerForIPad setPopoverContentSize:helpVC.view.frame.size];
+        popoverControllerForIPad.delegate = self;
+        [popoverControllerForIPad presentPopoverFromBarButtonItem:self.navigationItem.leftBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else
+    {
+        [[self navigationController] pushViewController:helpVC animated:YES];
+    }
 }
 
 - (void)downloadData:(id)sender
 {
+    if (popoverControllerForIPad != nil)
+    {
+        [popoverControllerForIPad dismissPopoverAnimated:YES];
+        popoverControllerForIPad = nil;
+    }
+    
     // 显示等待窗口
     waitingDialog = [[UIAlertView alloc] initWithTitle:nil message:@"正在下载相关数据，请等待 ..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
     [waitingDialog show];
@@ -299,6 +320,11 @@
     {
         // 重新显示列表
         [[self tableView] reloadData];
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            [self.historyVCForIPad.tableView reloadData];
+        }
     }
     else
     {
@@ -328,6 +354,12 @@
     [alert show];
     
     [self firstLoadAD];     // 首次加载广告
+}
+
+#pragma mark -- UIPopoverControllerDelegate相关函数
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    popoverControllerForIPad = nil;
 }
 
 #pragma mark - 

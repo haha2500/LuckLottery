@@ -16,7 +16,7 @@
 
 @class QCHistoryViewController;
 
-@interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DMAdViewDelegate>
+@interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIPopoverControllerDelegate, DMAdViewDelegate>
 {
     DMAdView *_dmAdView;
     Byte _btLoadADFlag;
@@ -24,8 +24,12 @@
     NSMutableData *downloadData;
     UIAlertView *waitingDialog;
     BOOL bPromptNoNewData;
+    UIPopoverController *popoverControllerForIPad;
 }
 
 @property (strong, nonatomic) NSMutableArray *luckItemArray;
 @property (assign, nonatomic) QCHistoryViewController *historyVCForIPad;
+
+- (void)downloadData:(id)sender;
+
 @end

@@ -18,6 +18,10 @@
 				<string>LuckLottery-3D_icon.png</string>
 				<string>LuckLottery-3D_icon@2x.png</string>
 				<string>Default.png</string>
+				<string>LuckLottery-3D_icon_ipad.png</string>
+				<string>LuckLottery-3D_icon_ipad@2x.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
 			</array>
 		</dict>
 	</dict>
@@ -46,6 +50,13 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 </dict>
 </plist>

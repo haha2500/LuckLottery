@@ -16,7 +16,7 @@
 {
     DMAdView *_dmAdView;
     BOOL _bADLoadOK;
-    UIPopoverController *popovercontorllerForIPad;
+    UIPopoverController *popoverControllerForIPad;
 }
 @property (strong, nonatomic) QCLuckItem *luckItem;
 @property (assign, nonatomic) QCMainViewController *mainVCForIPad;
