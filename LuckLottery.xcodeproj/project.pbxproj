@@ -23,8 +23,6 @@
 		EE85E618158D710A008FED54 /* LuckLottery-3D_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */; };
 		EEA4FE6B15C573DD00FC523B /* LuckLottery-3D_icon_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEA4FE6A15C573DD00FC523B /* LuckLottery-3D_icon_ipad.png */; };
 		EEA4FE6D15C573E100FC523B /* LuckLottery-3D_icon_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEA4FE6C15C573E100FC523B /* LuckLottery-3D_icon_ipad@2x.png */; };
-		EEA4FE6F15C573F800FC523B /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEA4FE6E15C573F800FC523B /* Default-Portrait~ipad.png */; };
-		EEA4FE7115C573FC00FC523B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEA4FE7015C573FC00FC523B /* Default-Landscape~ipad.png */; };
 		EEA4FE7215C5743D00FC523B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E619158D710F008FED54 /* Default.png */; };
 		EEA790BF158AB62700A94A3E /* QCLuckItemNumSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA790BD158AB62700A94A3E /* QCLuckItemNumSetViewController.m */; };
 		EEA790C0158AB62700A94A3E /* QCLuckItemNumSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA790BE158AB62700A94A3E /* QCLuckItemNumSetViewController.xib */; };
@@ -46,6 +44,11 @@
 		EEEAF75B15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAF75A15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib */; };
 		EEEAF77815C4252C000F192D /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEEAF77615C4252C000F192D /* DomobAdSDKBundle.bundle */; };
 		EEEAF77915C4252C000F192D /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEAF77715C4252C000F192D /* libDomobAdSDK.a */; };
+		EEFB029215DF9EFB005C3491 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E61B158D7113008FED54 /* Default@2x.png */; };
+		EEFB029415DF9F49005C3491 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEFB029315DF9F49005C3491 /* Default-Portrait~ipad.png */; };
+		EEFB029A15DFA0DA005C3491 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEFB029915DFA0DA005C3491 /* Default-Landscape~ipad.png */; };
+		EEFB029C15DFA72A005C3491 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEFB029B15DFA72A005C3491 /* Default-Landscape@2x~ipad.png */; };
+		EEFB029E15DFA731005C3491 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEFB029D15DFA731005C3491 /* Default-Portrait@2x~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,8 +74,6 @@
 		EE85E61B158D7113008FED54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		EEA4FE6A15C573DD00FC523B /* LuckLottery-3D_icon_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LuckLottery-3D_icon_ipad.png"; sourceTree = SOURCE_ROOT; };
 		EEA4FE6C15C573E100FC523B /* LuckLottery-3D_icon_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LuckLottery-3D_icon_ipad@2x.png"; sourceTree = SOURCE_ROOT; };
-		EEA4FE6E15C573F800FC523B /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		EEA4FE7015C573FC00FC523B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		EEA790BC158AB62700A94A3E /* QCLuckItemNumSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItemNumSetViewController.h; sourceTree = "<group>"; };
 		EEA790BD158AB62700A94A3E /* QCLuckItemNumSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItemNumSetViewController.m; sourceTree = "<group>"; };
 		EEA790BE158AB62700A94A3E /* QCLuckItemNumSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemNumSetViewController.xib; sourceTree = "<group>"; };
@@ -108,6 +109,10 @@
 		EEEAF77415C4252C000F192D /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
 		EEEAF77615C4252C000F192D /* DomobAdSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobAdSDKBundle.bundle; sourceTree = "<group>"; };
 		EEEAF77715C4252C000F192D /* libDomobAdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomobAdSDK.a; sourceTree = "<group>"; };
+		EEFB029315DF9F49005C3491 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		EEFB029915DFA0DA005C3491 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		EEFB029B15DFA72A005C3491 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		EEFB029D15DFA731005C3491 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,10 +209,12 @@
 				EE85E619158D710F008FED54 /* Default.png */,
 				EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */,
 				EE85E615158D7106008FED54 /* LuckLottery-3D_icon.png */,
-				EEA4FE7015C573FC00FC523B /* Default-Landscape~ipad.png */,
-				EEA4FE6E15C573F800FC523B /* Default-Portrait~ipad.png */,
 				EEA4FE6C15C573E100FC523B /* LuckLottery-3D_icon_ipad@2x.png */,
 				EEA4FE6A15C573DD00FC523B /* LuckLottery-3D_icon_ipad.png */,
+				EEFB029915DFA0DA005C3491 /* Default-Landscape~ipad.png */,
+				EEFB029315DF9F49005C3491 /* Default-Portrait~ipad.png */,
+				EEFB029D15DFA731005C3491 /* Default-Portrait@2x~ipad.png */,
+				EEFB029B15DFA72A005C3491 /* Default-Landscape@2x~ipad.png */,
 				EE3ECF021588754F0094D9A0 /* ball_blue.png */,
 				EE417B371585DC9200B77E45 /* ball_orange.png */,
 				EE417B381585DC9200B77E45 /* ball_red.png */,
@@ -308,9 +315,12 @@
 				EEEAF77815C4252C000F192D /* DomobAdSDKBundle.bundle in Resources */,
 				EEA4FE6B15C573DD00FC523B /* LuckLottery-3D_icon_ipad.png in Resources */,
 				EEA4FE6D15C573E100FC523B /* LuckLottery-3D_icon_ipad@2x.png in Resources */,
-				EEA4FE6F15C573F800FC523B /* Default-Portrait~ipad.png in Resources */,
-				EEA4FE7115C573FC00FC523B /* Default-Landscape~ipad.png in Resources */,
 				EEA4FE7215C5743D00FC523B /* Default.png in Resources */,
+				EEFB029215DF9EFB005C3491 /* Default@2x.png in Resources */,
+				EEFB029415DF9F49005C3491 /* Default-Portrait~ipad.png in Resources */,
+				EEFB029A15DFA0DA005C3491 /* Default-Landscape~ipad.png in Resources */,
+				EEFB029C15DFA72A005C3491 /* Default-Landscape@2x~ipad.png in Resources */,
+				EEFB029E15DFA731005C3491 /* Default-Portrait@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

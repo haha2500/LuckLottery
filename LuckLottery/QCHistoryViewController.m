@@ -150,7 +150,7 @@
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"nodatacell"];
         }
-        cell.textLabel.text = @"请点击上面的“刷新”按钮获取最新数据";
+        cell.textLabel.text = (!_bADLoadOK || [indexPath row] == 1) ? @"请点击上面的“刷新”按钮获取最新数据" : @"";
         return cell;
     }
     
