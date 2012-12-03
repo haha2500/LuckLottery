@@ -7,11 +7,21 @@
 #import <UIKit/UIKit.h>
 #import "DMAdView.h"
 
+typedef enum
+{
+    DMInterstitialBackgroundStyleBlack,
+    DMInterstitialBackgroundStyleWhite
+} DMInterstitialBackgroundStyle;
+
 @protocol DMInterstitialAdControllerDelegate;
 @interface DMInterstitialAdController : UIViewController
 
+// 广告内容是否已经加载好
 @property (nonatomic, readonly) BOOL isReady;
-@property (nonatomic, assign) NSObject<DMInterstitialAdControllerDelegate> *delegate; 
+// 设置委托对象
+@property (nonatomic, assign) NSObject<DMInterstitialAdControllerDelegate> *delegate;
+// 是否在展现插屏广告时，隐藏状态栏。默认为YES
+@property (nonatomic, assign) BOOL shouldHiddenStatusBar;
 
 // 初始化一个插屏广告控制器，默认尺寸为全屏
 - (id)initWithPublisherId:(NSString *)publisherId                   // Domob PublisherId
@@ -21,6 +31,18 @@
 - (id)initWithPublisherId:(NSString *)publisherId                   // Domob PublisherId
        rootViewController:(UIViewController *)rootViewController    // 插屏广告使用的RootViewController
                      size:(CGSize)adSize;                           // 插屏广告的广告尺寸（默认为全屏）
+
+// 初始化一个插屏广告控制器，使用开发者指定的由Domob提供的插屏背景风格
+- (id)initWithPublisherId:(NSString *)publisherId                   // Domob PublisherId
+       rootViewController:(UIViewController *)rootViewController    // 插屏广告使用的RootViewController
+                     size:(CGSize)adSize                            // 插屏广告的广告尺寸（默认为全屏）
+          backgroundStyle:(DMInterstitialBackgroundStyle)style;     // 插屏广告使用的背景图片样式，目前提供两种样式的背景图片
+
+// 初始化一个插屏广告控制器，使用开发者指定的尺寸和插屏背景图片
+- (id)initWithPublisherId:(NSString *)publisherId                   // Domob PublisherId
+       rootViewController:(UIViewController *)rootViewController    // 插屏广告使用的RootViewController
+                     size:(CGSize)adSize                            // 插屏广告的广告尺寸（默认为全屏）
+          backgroundImage:(UIImage *)image;                         // 插屏广告使用的自定义背景图片
 
 // 加载广告
 - (void)loadAd;

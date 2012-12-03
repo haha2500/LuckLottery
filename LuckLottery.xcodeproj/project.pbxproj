@@ -13,6 +13,10 @@
 		EE0C167A158565FA00B879A6 /* QCHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C1678158565FA00B879A6 /* QCHistoryViewController.xib */; };
 		EE0C167F15856F2700B879A6 /* QCLuckItemDateSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */; };
 		EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */; };
+		EE15C818166C20C400D0A0E0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C817166C20C400D0A0E0 /* AdSupport.framework */; };
+		EE15C81B166C20D300D0A0E0 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C81A166C20D300D0A0E0 /* PassKit.framework */; };
+		EE15C81D166C20DF00D0A0E0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C81C166C20DF00D0A0E0 /* StoreKit.framework */; };
+		EE15C81F166C250B00D0A0E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE15C81E166C250B00D0A0E0 /* Default-568h@2x.png */; };
 		EE21AED71585F90000D28D6F /* QCBallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE21AED61585F90000D28D6F /* QCBallImageView.m */; };
 		EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3ECF021588754F0094D9A0 /* ball_blue.png */; };
 		EE417B341585C47800B77E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B331585C47800B77E45 /* CoreLocation.framework */; };
@@ -61,6 +65,10 @@
 		EE0C167C15856F2700B879A6 /* QCLuckItemDateSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLuckItemDateSetViewController.h; sourceTree = "<group>"; };
 		EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLuckItemDateSetViewController.m; sourceTree = "<group>"; };
 		EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLuckItemDateSetViewController.xib; sourceTree = "<group>"; };
+		EE15C817166C20C400D0A0E0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		EE15C81A166C20D300D0A0E0 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		EE15C81C166C20DF00D0A0E0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EE15C81E166C250B00D0A0E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		EE21AED51585F90000D28D6F /* QCBallImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCBallImageView.h; sourceTree = "<group>"; };
 		EE21AED61585F90000D28D6F /* QCBallImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCBallImageView.m; sourceTree = "<group>"; };
 		EE3ECF021588754F0094D9A0 /* ball_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_blue.png; sourceTree = "<group>"; };
@@ -120,6 +128,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE15C81D166C20DF00D0A0E0 /* StoreKit.framework in Frameworks */,
+				EE15C81B166C20D300D0A0E0 /* PassKit.framework in Frameworks */,
+				EE15C818166C20C400D0A0E0 /* AdSupport.framework in Frameworks */,
 				EE417B361585C48600B77E45 /* SystemConfiguration.framework in Frameworks */,
 				EE417B341585C47800B77E45 /* CoreLocation.framework in Frameworks */,
 				EECF8CF515834E96000CA104 /* UIKit.framework in Frameworks */,
@@ -153,6 +164,9 @@
 		EECF8CF315834E96000CA104 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE15C81C166C20DF00D0A0E0 /* StoreKit.framework */,
+				EE15C81A166C20D300D0A0E0 /* PassKit.framework */,
+				EE15C817166C20C400D0A0E0 /* AdSupport.framework */,
 				EE417B351585C48600B77E45 /* SystemConfiguration.framework */,
 				EE417B331585C47800B77E45 /* CoreLocation.framework */,
 				EECF8CF415834E96000CA104 /* UIKit.framework */,
@@ -207,6 +221,7 @@
 			children = (
 				EE85E61B158D7113008FED54 /* Default@2x.png */,
 				EE85E619158D710F008FED54 /* Default.png */,
+				EE15C81E166C250B00D0A0E0 /* Default-568h@2x.png */,
 				EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */,
 				EE85E615158D7106008FED54 /* LuckLottery-3D_icon.png */,
 				EEA4FE6C15C573E100FC523B /* LuckLottery-3D_icon_ipad@2x.png */,
@@ -321,6 +336,7 @@
 				EEFB029A15DFA0DA005C3491 /* Default-Landscape~ipad.png in Resources */,
 				EEFB029C15DFA72A005C3491 /* Default-Landscape@2x~ipad.png in Resources */,
 				EEFB029E15DFA731005C3491 /* Default-Portrait@2x~ipad.png in Resources */,
+				EE15C81F166C250B00D0A0E0 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

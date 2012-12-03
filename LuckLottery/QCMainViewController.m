@@ -291,6 +291,7 @@
 	
 	[waitingDialog addSubview:activityIndicator];
     
+        
     NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
     NSURL *url = [NSURL URLWithString:strURL];
     bPromptNoNewData = (sender == nil) ? NO : YES;
