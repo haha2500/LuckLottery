@@ -48,6 +48,7 @@
 		EEEAF75B15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEEAF75A15C40EEC000F192D /* QCHistoryTableViewCell_IPad.xib */; };
 		EEEAF77815C4252C000F192D /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEEAF77615C4252C000F192D /* DomobAdSDKBundle.bundle */; };
 		EEEAF77915C4252C000F192D /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEAF77715C4252C000F192D /* libDomobAdSDK.a */; };
+		EEF409621676245100227C5A /* QCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF409611676245100227C5A /* QCLoginView.m */; };
 		EEFB029215DF9EFB005C3491 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E61B158D7113008FED54 /* Default@2x.png */; };
 		EEFB029415DF9F49005C3491 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEFB029315DF9F49005C3491 /* Default-Portrait~ipad.png */; };
 		EEFB029A15DFA0DA005C3491 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEFB029915DFA0DA005C3491 /* Default-Landscape~ipad.png */; };
@@ -117,6 +118,8 @@
 		EEEAF77415C4252C000F192D /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
 		EEEAF77615C4252C000F192D /* DomobAdSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobAdSDKBundle.bundle; sourceTree = "<group>"; };
 		EEEAF77715C4252C000F192D /* libDomobAdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomobAdSDK.a; sourceTree = "<group>"; };
+		EEF409601676245100227C5A /* QCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLoginView.h; sourceTree = "<group>"; };
+		EEF409611676245100227C5A /* QCLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLoginView.m; sourceTree = "<group>"; };
 		EEFB029315DF9F49005C3491 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		EEFB029915DFA0DA005C3491 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		EEFB029B15DFA72A005C3491 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				EECF8D0615834E96000CA104 /* QCMainViewController.h */,
 				EECF8D0715834E96000CA104 /* QCMainViewController.m */,
 				EECF8D0915834E96000CA104 /* QCMainViewController.xib */,
+				EEF409601676245100227C5A /* QCLoginView.h */,
+				EEF409611676245100227C5A /* QCLoginView.m */,
 				EE0C1676158565FA00B879A6 /* QCHistoryViewController.h */,
 				EE0C1677158565FA00B879A6 /* QCHistoryViewController.m */,
 				EE0C1678158565FA00B879A6 /* QCHistoryViewController.xib */,
@@ -360,6 +365,7 @@
 				EEBC8AEB15877FDE00E8B6A2 /* QCDataStore.m in Sources */,
 				EEA790BF158AB62700A94A3E /* QCLuckItemNumSetViewController.m in Sources */,
 				EECBC5EF158F4F9A00B5D7C8 /* QCHelpViewController.m in Sources */,
+				EEF409621676245100227C5A /* QCLoginView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DMAdView.h"
 #import "QCLuckItem.h"
+#import "QCLoginView.h"
 
 #define kLoadADNeedFirstLoad        1           // 第一次加载广告
 #define kLoadADLoadSuccess          2           // 加载广告成功
@@ -19,6 +20,7 @@
 @interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIPopoverControllerDelegate, DMAdViewDelegate>
 {
     DMAdView *_dmAdView;
+    QCLoginView *_loginView;
     Byte _btLoadADFlag;
     NSURLConnection *connection;
     NSMutableData *downloadData;

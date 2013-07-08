@@ -23,6 +23,8 @@
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
+        // 创建隐藏的登录视图
+        _loginView = [[QCLoginView alloc] initWithFrame:CGRectZero];
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
         {
             popoverControllerForIPad = nil;
@@ -131,6 +133,7 @@
 {
     _dmAdView.delegate = nil;
     _dmAdView.rootViewController = nil;
+    _loginView = nil;
 }
 
 #pragma mark - DMAdViewDelegate Method
@@ -291,7 +294,9 @@
 	
 	[waitingDialog addSubview:activityIndicator];
     
-        
+#ifdef TARGET_IPHONE_SIMULATOR  // 模拟器
+#endif
+    
     NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
     NSURL *url = [NSURL URLWithString:strURL];
     bPromptNoNewData = (sender == nil) ? NO : YES;
@@ -378,4 +383,5 @@
         [_dmAdView loadAd];                     // 开始加载广告
     }
 }
+
 @end
