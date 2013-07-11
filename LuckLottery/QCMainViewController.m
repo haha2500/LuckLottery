@@ -32,7 +32,7 @@
         else
         {
             // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID
-            _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:DOMOB_AD_SIZE_320x50];
+            _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" placementId:@"16TLmATaAcaIsY6LN3jF2z9i" size:DOMOB_AD_SIZE_320x50];
             // 设置广告视图的位置
             _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
             _btLoadADFlag = kLoadADNeedFirstLoad;
@@ -295,10 +295,12 @@
 	[waitingDialog addSubview:activityIndicator];
     
 #ifdef TARGET_IPHONE_SIMULATOR  // 模拟器
+    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/Mobile/release/cstdata_IOS.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
+#else
+    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/Mobile/debug/cstdata_IOS.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
 #endif
     
-    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/cstdata2010/debug/cstdata_test.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
-    NSURL *url = [NSURL URLWithString:strURL];
+      NSURL *url = [NSURL URLWithString:strURL];
     bPromptNoNewData = (sender == nil) ? NO : YES;
     NSURLRequest *requset = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     downloadData = [[NSMutableData alloc] init];

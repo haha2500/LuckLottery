@@ -1,7 +1,7 @@
 //
 //  DMTools.h
 //
-//  Copyright (c) 2012 Domob Ltd. All rights reserved.
+//  Copyright (c) 2013 Domob Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

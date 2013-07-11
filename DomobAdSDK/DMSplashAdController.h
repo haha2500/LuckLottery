@@ -1,12 +1,20 @@
 //
 //  DMSplashAdController.h
 //
-//  Copyright (c) 2012 Domob Ltd. All rights reserved.
+//  Copyright (c) 2013 Domob Ltd. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "DMAdView.h"
+
+// For iPhone
+#define DOMOB_AD_SIZE_320x240   CGSizeMake(320, 240)
+#define DOMOB_AD_SIZE_320x400   CGSizeMake(320, 400)
+
+// For iPad
+#define DOMOB_AD_SIZE_768x576   CGSizeMake(768, 576)
+#define DOMOB_AD_SIZE_768x960   CGSizeMake(768, 960)
 
 @protocol DMSplashAdControllerDelegate;
 @interface DMSplashAdController : UIViewController
@@ -17,18 +25,31 @@
 
 // 初始化开屏广告控制器
 - (id)initWithPublisherId:(NSString *)publisherId   // Domob PublisherId
+              placementId:(NSString *)placementId   // Domob PlacementId
                    window:(UIWindow *)window;       // 用于呈现开屏广告的Key Window
 
 // 初始化开屏广告控制器
 - (id)initWithPublisherId:(NSString *)publisherId   // Domob PublisherId
+              placementId:(NSString *)placementId   // Domob PlacementId
                    window:(UIWindow *)window        // 用于呈现开屏广告的Key Window
                background:(UIColor *)background;    // 开屏广告出现前的背景颜色、图片（默认为黑色）
 
 // 初始化开屏广告控制器
 - (id)initWithPublisherId:(NSString *)publisherId   // Domob PublisherId
+              placementId:(NSString *)placementId   // Domob PlacementId
                    window:(UIWindow *)keyWindow     // 用于呈现开屏广告的Key Window
                background:(UIColor *)background     // 开屏广告出现前的背景颜色、图片（默认为黑色）
-                animation:(BOOL)yesOrNo;            // 开屏广告关闭时，是否使用渐变动画（默认有关闭动画）
+                animation:(BOOL)animation;          // 开屏广告关闭时，是否使用渐变动画（默认有关闭动画）
+
+// 初始化开屏广告控制器。
+// 可以指定广告的尺寸，以及显示的位置。从而使广告与开机画片结合的更好
+- (id)initWithPublisherId:(NSString *)publisherId   // Domob PublisherId
+              placementId:(NSString *)placementId   // Domob PlacementId
+                     size:(CGSize)adSize            // 广告尺寸，只在竖屏时有效，横屏时均会显示全屏广告。
+                   offset:(CGFloat)offset           // 广告视图在Y轴的偏移量，只在竖屏时有效，横屏时偏移量总是为0。
+                   window:(UIWindow *)keyWindow     // 用于呈现开屏广告的Key Window
+               background:(UIColor *)background     // 开屏广告出现前的背景颜色、图片（默认为黑色），建议设置为与“Launch Images”相同的图片。
+                animation:(BOOL)animation;          // 开屏广告关闭时，是否使用渐变动画（默认有关闭动画）
 
 // 呈现广告
 - (void)present;

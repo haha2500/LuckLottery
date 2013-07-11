@@ -13,16 +13,21 @@
 		EE0C167A158565FA00B879A6 /* QCHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C1678158565FA00B879A6 /* QCHistoryViewController.xib */; };
 		EE0C167F15856F2700B879A6 /* QCLuckItemDateSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C167D15856F2700B879A6 /* QCLuckItemDateSetViewController.m */; };
 		EE0C168015856F2700B879A6 /* QCLuckItemDateSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE0C167E15856F2700B879A6 /* QCLuckItemDateSetViewController.xib */; };
-		EE15C818166C20C400D0A0E0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C817166C20C400D0A0E0 /* AdSupport.framework */; };
-		EE15C81B166C20D300D0A0E0 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C81A166C20D300D0A0E0 /* PassKit.framework */; };
-		EE15C81D166C20DF00D0A0E0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C81C166C20DF00D0A0E0 /* StoreKit.framework */; };
+		EE15C818166C20C400D0A0E0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C817166C20C400D0A0E0 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EE15C81B166C20D300D0A0E0 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C81A166C20D300D0A0E0 /* PassKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EE15C81D166C20DF00D0A0E0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE15C81C166C20DF00D0A0E0 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EE15C81F166C250B00D0A0E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE15C81E166C250B00D0A0E0 /* Default-568h@2x.png */; };
 		EE21AED71585F90000D28D6F /* QCBallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE21AED61585F90000D28D6F /* QCBallImageView.m */; };
 		EE3ECF031588754F0094D9A0 /* ball_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = EE3ECF021588754F0094D9A0 /* ball_blue.png */; };
-		EE417B341585C47800B77E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B331585C47800B77E45 /* CoreLocation.framework */; };
+		EE417B341585C47800B77E45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B331585C47800B77E45 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EE417B361585C48600B77E45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE417B351585C48600B77E45 /* SystemConfiguration.framework */; };
 		EE417B391585DC9200B77E45 /* ball_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B371585DC9200B77E45 /* ball_orange.png */; };
 		EE417B3A1585DC9200B77E45 /* ball_red.png in Resources */ = {isa = PBXBuildFile; fileRef = EE417B381585DC9200B77E45 /* ball_red.png */; };
+		EE825DB2178E246200933590 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE825DB1178E246200933590 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EE825DB4178E246900933590 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE825DB3178E246900933590 /* EventKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EE825DB6178E247000933590 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE825DB5178E247000933590 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EE825DB8178E247800933590 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE825DB7178E247800933590 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EE825DBA178E249400933590 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE825DB9178E249400933590 /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EE85E616158D7106008FED54 /* LuckLottery-3D_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E615158D7106008FED54 /* LuckLottery-3D_icon.png */; };
 		EE85E618158D710A008FED54 /* LuckLottery-3D_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */; };
 		EEA4FE6B15C573DD00FC523B /* LuckLottery-3D_icon_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EEA4FE6A15C573DD00FC523B /* LuckLottery-3D_icon_ipad.png */; };
@@ -77,6 +82,11 @@
 		EE417B351585C48600B77E45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EE417B371585DC9200B77E45 /* ball_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_orange.png; sourceTree = "<group>"; };
 		EE417B381585DC9200B77E45 /* ball_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_red.png; sourceTree = "<group>"; };
+		EE825DB1178E246200933590 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EE825DB3178E246900933590 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		EE825DB5178E247000933590 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EE825DB7178E247800933590 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EE825DB9178E249400933590 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EE85E615158D7106008FED54 /* LuckLottery-3D_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LuckLottery-3D_icon.png"; sourceTree = SOURCE_ROOT; };
 		EE85E617158D710A008FED54 /* LuckLottery-3D_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LuckLottery-3D_icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		EE85E619158D710F008FED54 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -131,6 +141,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE825DBA178E249400933590 /* libsqlite3.dylib in Frameworks */,
+				EE825DB8178E247800933590 /* AudioToolbox.framework in Frameworks */,
+				EE825DB6178E247000933590 /* AVFoundation.framework in Frameworks */,
+				EE825DB4178E246900933590 /* EventKit.framework in Frameworks */,
+				EE825DB2178E246200933590 /* Social.framework in Frameworks */,
 				EE15C81D166C20DF00D0A0E0 /* StoreKit.framework in Frameworks */,
 				EE15C81B166C20D300D0A0E0 /* PassKit.framework in Frameworks */,
 				EE15C818166C20C400D0A0E0 /* AdSupport.framework in Frameworks */,
@@ -149,6 +164,11 @@
 		EECF8CE515834E96000CA104 = {
 			isa = PBXGroup;
 			children = (
+				EE825DB9178E249400933590 /* libsqlite3.dylib */,
+				EE825DB7178E247800933590 /* AudioToolbox.framework */,
+				EE825DB5178E247000933590 /* AVFoundation.framework */,
+				EE825DB3178E246900933590 /* EventKit.framework */,
+				EE825DB1178E246200933590 /* Social.framework */,
 				EEEAF77015C4252C000F192D /* DomobAdSDK */,
 				EECF8CFA15834E96000CA104 /* LuckLottery */,
 				EECF8CF315834E96000CA104 /* Frameworks */,
@@ -294,7 +314,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = QC;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = EECF8CEA15834E96000CA104 /* Build configuration list for PBXProject "LuckLottery" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -397,6 +417,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -412,6 +437,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -422,6 +449,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
@@ -442,6 +473,8 @@
 		EECF8D0F15834E96000CA104 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sun Wu (N75M4M7U4K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuckLottery/LuckLottery-Prefix.pch";
 				INFOPLIST_FILE = "LuckLottery/LuckLottery-Info.plist";
@@ -451,6 +484,8 @@
 					"\"$(SRCROOT)/DomobAdSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -459,6 +494,8 @@
 		EECF8D1015834E96000CA104 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuckLottery/LuckLottery-Prefix.pch";
 				INFOPLIST_FILE = "LuckLottery/LuckLottery-Info.plist";
@@ -468,6 +505,8 @@
 					"\"$(SRCROOT)/DomobAdSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

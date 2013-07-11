@@ -28,7 +28,7 @@
         
         // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID，测试ID：56OJyM1ouMGoULfJaL
         // _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJyM1ouMGoULfJaL" size:sizeAD]; // TEST 测试ID
-        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" size:sizeAD]; // 正式ID
+        _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" placementId:@"16TLmATaAcaIsY6LN3jF2z9i" size:sizeAD]; // 正式ID
         // 设置广告视图的位置
         int nXOffset = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 200 : 0;
         _dmAdView.frame = CGRectMake(nXOffset, 0, sizeAD.width, sizeAD.height);
