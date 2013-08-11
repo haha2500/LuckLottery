@@ -21,7 +21,7 @@
 
 - (id)initWithType:(Byte)type andName:(NSString *)name
 {
-    if (self == [super init])
+    if (self = [super init])
     {
         btType = type;
         strName = name;

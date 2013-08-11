@@ -16,11 +16,6 @@
     if (self) {
         // 登录服务器
         // Initialization code
-#ifdef TARGET_IPHONE_SIMULATOR  // 模拟器
-        const NSString *strRequestURL = @"http://software.pinble.com/mobile/debug/";
-#else
-        const NSString *strRequestURL = @"http://software.pinble.com/mobile/release/";
-#endif
         
         NSString *strSoftVer = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
         NSString *strOSName = [NSString stringWithFormat:@"%@ %@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]];
@@ -29,7 +24,7 @@
         NSInteger width = [[UIScreen mainScreen] bounds].size.width * [UIScreen mainScreen].scale;
         NSInteger height = [[UIScreen mainScreen] bounds].size.height * [UIScreen mainScreen].scale;
         NSInteger loginID = [[NSUserDefaults standardUserDefaults] integerForKey:@"LoginID"];
-        NSString *strURLLogin = [[NSString stringWithFormat:@"%@login_IOS.asp?ID=%d&SoftID=1&SoftVer=%@&OSType=1&OSName=IOS_%@&CX=%d&CY=%d&IMEI=%@&DeviceType=%@", strRequestURL, loginID, strSoftVer, strOSName, width, height, strIMEI, strDeviceType] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        NSString *strURLLogin = [[NSString stringWithFormat:@"%@login_IOS.asp?ID=%d&SoftID=1&SoftVer=%@&OSType=1&OSName=IOS_%@&CX=%d&CY=%d&IMEI=%@&DeviceType=%@", kBASEURL, loginID, strSoftVer, strOSName, width, height, strIMEI, strDeviceType] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         NSURL *url = [NSURL URLWithString:strURLLogin];
         NSURLRequest *requset = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
         downloadData = [[NSMutableData alloc] init];

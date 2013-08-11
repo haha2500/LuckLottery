@@ -16,6 +16,7 @@
 #define kLoadADLoadFailure          3           // 加载广告失败
 
 @class QCHistoryViewController;
+@class QCBuyViewController;
 
 @interface QCMainViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIPopoverControllerDelegate, DMAdViewDelegate>
 {
@@ -27,6 +28,7 @@
     UIAlertView *waitingDialog;
     BOOL bPromptNoNewData;
     UIPopoverController *popoverControllerForIPad;
+    QCBuyViewController *buyVC;
 }
 
 @property (strong, nonatomic) NSMutableArray *luckItemArray;

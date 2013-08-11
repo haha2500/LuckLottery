@@ -11,12 +11,14 @@
 #import "QCLuckItem.h"
 
 @class QCMainViewController;
+@class QCBuyViewController;
 
 @interface QCHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DMAdViewDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate>
 {
     DMAdView *_dmAdView;
     BOOL _bADLoadOK;
     UIPopoverController *popoverControllerForIPad;
+    QCBuyViewController *buyVC;
 }
 @property (strong, nonatomic) QCLuckItem *luckItem;
 @property (assign, nonatomic) QCMainViewController *mainVCForIPad;

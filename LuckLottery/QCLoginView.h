@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#ifdef DEBUG  // 调试版
+    #define kBASEURL @"http://software.pinble.com/mobile/debug/"
+#else
+    #define kBASEURL @"http://software.pinble.com/mobile/release/"
+#endif
+
 @interface QCLoginView : UIView
 {
-    NSURLConnection *connection;
+    NSURLConnection *connection;    
     NSMutableData *downloadData;
 }
 @end

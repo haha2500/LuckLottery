@@ -12,6 +12,7 @@
 #import "QCLuckItemDateSetViewController.h"
 #import "QCLuckItemNumSetViewController.h"
 #import "QCMainViewController.h"
+#import "QCBuyViewController.h"
 
 @interface QCHistoryViewController ()
 
@@ -22,7 +23,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    if (self == [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
         CGSize sizeAD = /*([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ?DOMOB_AD_SIZE_728x90 : */DOMOB_AD_SIZE_320x50;
         
@@ -45,12 +46,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // 设置导航栏按钮和标题
-    if (luckItem.btType < kLuckItemTypeCST)
-    {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(modifyLuckItem:)];
-    }
-    
-    self.navigationItem.title = self.luckItem.strName;
+    [self resetLuckItemForIPad];
     
     _bADLoadOK = NO;
     _dmAdView.delegate = self;              // 设置 Delegate
@@ -82,6 +78,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        return ;
+    }
+    
+    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation))
+    {
+        _dmAdView.frame = CGRectMake(0, 0, FLEXIBLE_SIZE_LANDSCAPE.width, FLEXIBLE_SIZE_LANDSCAPE.height);
+    }
+    else
+    {
+        _dmAdView.frame = CGRectMake(0, 0, FLEXIBLE_SIZE_PORTRAIT.width, FLEXIBLE_SIZE_PORTRAIT.height);
+    }
+}
+
 - (void)dealloc
 {
     _dmAdView.delegate = nil;
@@ -93,11 +106,24 @@
     // 设置导航栏按钮和标题
     if (luckItem.btType < kLuckItemTypeCST)
     {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(modifyLuckItem:)];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            UIBarButtonItem *rightBBI = [[UIBarButtonItem alloc] initWithTitle:@"投注" style:UIBarButtonItemStylePlain target:self action:@selector(toBuy)];
+            UIBarButtonItem *rightBBI2 = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(modifyLuckItem:)];
+            self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightBBI2, rightBBI, nil];
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(modifyLuckItem:)];
+        }
     }
     else
     {
         self.navigationItem.rightBarButtonItem = nil;
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"投注" style:UIBarButtonItemStylePlain target:self action:@selector(toBuy)];
+        }
     }
     
     self.navigationItem.title = self.luckItem.strName;
@@ -269,6 +295,16 @@
     {
         [self.navigationController pushViewController:subVC animated:YES];
     }
+}
+
+- (void)toBuy
+{
+    if (buyVC == nil)
+    {
+        buyVC = [[QCBuyViewController alloc] initWithNibName:@"QCBuyViewController" bundle:nil];
+    }
+    
+    [[self navigationController] pushViewController:buyVC animated:YES];
 }
 
 #pragma mark - UISplitViewControllerDelegate Method

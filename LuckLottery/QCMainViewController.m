@@ -11,6 +11,8 @@
 #import "QCHistoryViewController.h"
 #import "QCHelpViewController.h"
 #import "QCDataStore.h"
+#import "QCBuyViewController.h"
+#import "QCLoginView.h"
 
 @interface QCMainViewController ()
 
@@ -32,9 +34,9 @@
         else
         {
             // 创建广告视图，此处使用的是测试ID，请登陆多盟官网（www.domob.cn）获取新的ID
-            _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" placementId:@"16TLmATaAcaIsY6LN3jF2z9i" size:DOMOB_AD_SIZE_320x50];
+            _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJz/2YuMyvaSJlPj" placementId:@"16TLmATaAcaIsY6LN3jF2z9i" size:FLEXIBLE_SIZE_PORTRAIT];
             // 设置广告视图的位置
-            _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+            _dmAdView.frame = CGRectMake(0, 0, FLEXIBLE_SIZE_PORTRAIT.width, FLEXIBLE_SIZE_PORTRAIT.height);
             _btLoadADFlag = kLoadADNeedFirstLoad;
         }
         
@@ -62,6 +64,7 @@
             [self.luckItemArray addObject:luckItemNumber];
             [self.luckItemArray addObject:luckItemCST];
         }
+        buyVC = nil;
     }
     
     return self;
@@ -75,8 +78,18 @@
     //     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew:)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"说明" style:UIBarButtonItemStylePlain target:self action:@selector(helpInfo)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];
+    // self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];
     
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];     
+    }
+    else
+    {
+        UIBarButtonItem *rightBBI = [[UIBarButtonItem alloc] initWithTitle:@"投注" style:UIBarButtonItemStylePlain target:self action:@selector(toBuy)];
+        UIBarButtonItem *rightBBI2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(downloadData:)];
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightBBI2, rightBBI, nil];
+    }
     self.navigationItem.title = @"福彩3D幸运码";   // LOTTERY
     
     _btLoadADFlag = kLoadADNeedFirstLoad;
@@ -92,6 +105,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     [_dmAdView removeFromSuperview]; // 将广告试图从父视图中移除
+    buyVC = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -127,6 +141,23 @@
     }
     
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        return ;    // IPAD则不加载广告
+    }
+
+    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation))
+    {
+        _dmAdView.frame = CGRectMake(0, 0, FLEXIBLE_SIZE_LANDSCAPE.width, FLEXIBLE_SIZE_LANDSCAPE.height);
+    }
+    else
+    {
+        _dmAdView.frame = CGRectMake(0, 0, FLEXIBLE_SIZE_PORTRAIT.width, FLEXIBLE_SIZE_PORTRAIT.height);
+    }
 }
 
 - (void)dealloc
@@ -277,6 +308,16 @@
     }
 }
 
+- (void)toBuy
+{
+    if (buyVC == nil)
+    {
+        buyVC = [[QCBuyViewController alloc] initWithNibName:@"QCBuyViewController" bundle:nil];
+    }
+   
+    [[self navigationController] pushViewController:buyVC animated:YES];
+}
+
 - (void)downloadData:(id)sender
 {
     if (popoverControllerForIPad != nil)
@@ -294,11 +335,7 @@
 	
 	[waitingDialog addSubview:activityIndicator];
     
-#ifdef TARGET_IPHONE_SIMULATOR  // 模拟器
-    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/Mobile/release/cstdata_IOS.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
-#else
-    NSString *strURL = [NSString stringWithFormat:@"http://software.pinble.com/Mobile/debug/cstdata_IOS.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", [[QCDataStore defaultStore] lastIssue]];
-#endif
+    NSString *strURL = [NSString stringWithFormat:@"%@cstdata_IOS.asp?ver=1&lotteryid=11000130&lastissue=%d&softwareID=1", kBASEURL, [[QCDataStore defaultStore] lastIssue]];
     
       NSURL *url = [NSURL URLWithString:strURL];
     bPromptNoNewData = (sender == nil) ? NO : YES;
@@ -364,7 +401,8 @@
     [self firstLoadAD];     // 首次加载广告
 }
 
-#pragma mark -- UIPopoverControllerDelegate相关函数
+#pragma mark -
+#pragma mark UIPopoverControllerDelegate相关函数
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     popoverControllerForIPad = nil;

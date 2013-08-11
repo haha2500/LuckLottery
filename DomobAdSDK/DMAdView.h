@@ -16,6 +16,12 @@
 #define DOMOB_AD_SIZE_728x90    CGSizeMake(728, 90)
 #define DOMOB_AD_SIZE_600x500   CGSizeMake(600, 500)
 
+// For flexible banner
+#define FLEXIBLE_SIZE_PORTRAIT (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad? CGSizeMake(0, 90):CGSizeMake(0, 50))
+
+#define FLEXIBLE_SIZE_LANDSCAPE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad? CGSizeMake(0, 90):CGSizeMake(0, 50))
+
+
 typedef enum
 {
     DMUserGenderFemale,
