@@ -310,12 +310,19 @@
 
 - (void)toBuy
 {
-    if (buyVC == nil)
+  /*  if (buyVC == nil)
     {
         buyVC = [[QCBuyViewController alloc] initWithNibName:@"QCBuyViewController" bundle:nil];
     }
    
-    [[self navigationController] pushViewController:buyVC animated:YES];
+    [[self navigationController] pushViewController:buyVC animated:YES]; */
+    
+    // 打开购买网页
+    NSString *strSoftVer = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+    NSInteger loginID = [[NSUserDefaults standardUserDefaults] integerForKey:@"LoginID"];
+    NSString *strURLBuy = [[NSString stringWithFormat:@"%@buy_IOS.asp?ID=%d&SoftID=1&SoftVer=%@", kBASEURL, loginID, strSoftVer] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    NSURL *url = [NSURL URLWithString:strURLBuy];
+    [[UIApplication sharedApplication]openURL:url];
 }
 
 - (void)downloadData:(id)sender
